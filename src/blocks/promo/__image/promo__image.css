@@ -1,0 +1,20 @@
+@keyframes rotation {
+  0% {
+    transform: rotate(0);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.promo__image {
+  max-width: 310px;
+  max-height: 304px;
+  height: 100%;
+  grid-row-start: 1;
+  grid-row-end: 4;
+  grid-column-start: 2;
+  animation: 86.4s infinite rotation linear;
+  justify-self: end;
+  margin-right: 70px;
+}

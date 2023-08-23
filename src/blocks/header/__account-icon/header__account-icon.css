@@ -1,0 +1,11 @@
+.header__account-icon {  
+  background: #F9F9F9;
+  background-image: url("../../../images/icon__COLOR_icon-main.svg");
+  height: 26px;
+  width: 26px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  margin: 3px 3px 3px auto;
+  padding: 8px;
+  border-radius: 50px;
+}

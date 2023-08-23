@@ -1,0 +1,11 @@
+.promo__text {
+  max-width: 310px;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: white;
+  opacity: 0.5;
+  margin: 36px auto auto 70px;
+  grid-column-start: 1;
+}

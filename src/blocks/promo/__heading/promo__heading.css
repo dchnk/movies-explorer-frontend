@@ -1,0 +1,9 @@
+.promo__heading {
+  max-width: 640px;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 58px;
+  color: white;
+  margin: 0 auto 0 70px;
+}
