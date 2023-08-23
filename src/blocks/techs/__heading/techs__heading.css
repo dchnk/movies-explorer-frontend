@@ -1,0 +1,11 @@
+.techs__heading {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.88px;
+  margin: 0 70px 90px;
+  padding: 100px 0 23px;
+  border-bottom: 1px solid black;
+  text-align: start;
+}

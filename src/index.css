@@ -4,6 +4,7 @@
 @import url("./blocks/page.css");
 
 @import url("./blocks/header/header.css");
+@import url("./blocks/header/__content/header__content.css");
 @import url("./blocks/header/__logo/header__logo.css");
 @import url("./blocks/header/_type/header_type_white-background-color.css");
 @import url("./blocks/header/__navigation/header__navigation.css");
@@ -16,6 +17,7 @@
 @import url("./blocks/header/__account-icon/header__account-icon.css");
 
 @import url("./blocks/promo/promo.css");
+@import url("./blocks/promo/__content/promo__content.css");
 @import url("./blocks/promo/__heading/promo__heading.css");
 @import url("./blocks/promo/__text/promo__text.css");
 @import url("./blocks/promo/__button/promo__button.css");
@@ -32,3 +34,11 @@
 @import url("./blocks/about/__backend/about__backend.css");
 @import url("./blocks/about/__road-text/about__road-text.css");
 @import url("./blocks/about/__frontend/about__frontend.css");
+
+@import url("./blocks/techs/techs.css");
+@import url("./blocks/techs/__conetent/techs__conetent.css");
+@import url("./blocks/techs/__heading/techs__heading.css");
+@import url("./blocks/techs/__paragraph/techs__paragraph.css");
+@import url("./blocks/techs/__text/techs__text.css");
+@import url("./blocks/techs/__list/techs__list.css");
+@import url("./blocks/techs/__item/techs__item.css");
