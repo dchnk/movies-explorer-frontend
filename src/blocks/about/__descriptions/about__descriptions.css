@@ -1,0 +1,5 @@
+.about__descriptions {
+  display: flex;
+  flex-direction: row;
+  margin: 0 70px 110px;
+}

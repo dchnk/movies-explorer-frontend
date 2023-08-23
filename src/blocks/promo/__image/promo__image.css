@@ -14,7 +14,7 @@
   grid-row-start: 1;
   grid-row-end: 4;
   grid-column-start: 2;
-  animation: 86.4s infinite rotation linear;
+  /* animation: 86.4s infinite rotation linear; */
   justify-self: end;
   margin-right: 70px;
 }

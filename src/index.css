@@ -20,3 +20,15 @@
 @import url("./blocks/promo/__text/promo__text.css");
 @import url("./blocks/promo/__button/promo__button.css");
 @import url("./blocks/promo/__image/promo__image.css");
+
+@import url("./blocks/about/about.css");
+@import url("./blocks/about/__heading/about__heading.css");
+@import url("./blocks/about/__descriptions/about__descriptions.css");
+@import url("./blocks/about/__part/about__part.css");
+@import url("./blocks/about/__part-name/about__part-name.css");
+@import url("./blocks/about/__part-text/about__part-text.css");
+@import url("./blocks/about/__road/about__road.css");
+@import url("./blocks/about/__road-part/about__road-part.css");
+@import url("./blocks/about/__backend/about__backend.css");
+@import url("./blocks/about/__road-text/about__road-text.css");
+@import url("./blocks/about/__frontend/about__frontend.css");

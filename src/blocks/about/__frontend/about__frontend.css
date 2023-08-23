@@ -1,0 +1,13 @@
+.about__frontend {
+  max-width: 912px;
+  width: 100%;
+  height: 36px;
+  background-color: #F2F2F2;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
