@@ -1,0 +1,6 @@
+.about-me__container {
+  margin: 0 70px;
+  display: flex;
+  flex-direction: column;
+  grid-row-start: 2;
+}

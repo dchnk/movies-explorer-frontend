@@ -1,0 +1,10 @@
+.about-me__photo {
+  grid-row-start: 2;
+  grid-column-start: 2;
+  justify-self: end;
+  margin: 0 70px 0 0;
+  width: 270px;
+  height: 327px;
+  border-radius: 10px;
+  object-fit: cover;
+}

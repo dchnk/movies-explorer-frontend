@@ -1,0 +1,10 @@
+.about-me__name {
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 58px;
+  letter-spacing: -2px;
+  max-width: 600px;
+  margin: 0 0 18px;
+  padding: 0;
+}

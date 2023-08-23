@@ -42,3 +42,12 @@
 @import url("./blocks/techs/__text/techs__text.css");
 @import url("./blocks/techs/__list/techs__list.css");
 @import url("./blocks/techs/__item/techs__item.css");
+
+@import url("./blocks/about-me/about-me.css");
+@import url("./blocks/about-me/__heading/about-me__heading.css");
+@import url("./blocks/about-me/__container/about-me__container.css");
+@import url("./blocks/about-me/__name/about-me__name.css");
+@import url("./blocks/about-me/__info/about-me__info.css");
+@import url("./blocks/about-me/__text/about-me__text.css");
+@import url("./blocks/about-me/__link/about-me__link.css");
+@import url("./blocks/about-me/__photo/about-me__photo.css");
