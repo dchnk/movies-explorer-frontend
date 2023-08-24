@@ -1,4 +1,6 @@
 .header__profile {
+  max-width: 100px;
+  justify-self: end;
   margin: auto 70px auto 0;
   border-radius: 40px;
   background: #FFF;

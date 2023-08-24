@@ -1,5 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import Logo from "../images/logo__COLOR_main-1.svg"
+import Navigation from "./Navigation";
 
 function Header(props) {
 
@@ -9,10 +10,7 @@ function Header(props) {
     <header className={location.pathname === "/" ? ("header") : ("header header_type_white-background-color")}>
       <div className="header__content">
         <img className="header__logo" src={Logo} alt="логотип" />
-        {props.loggedIn && location.pathname !== "/" && <nav className="header__navigation">
-          <Link className="header__link header__link_type_films">Фильмы</Link>
-          <Link className="header__link header__link_type_saved-films">Сохраненные фильмы</Link>
-        </nav>}
+        {props.loggedIn && location.pathname !== "/" && <Navigation/>}
         {!props.loggedIn && <div className="header__authorize">
           <Link className="header__link header__link_type_sign-up">Регистрация</Link>
           <Link className="header__link header__link_type_sign-in">Войти</Link>

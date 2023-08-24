@@ -51,3 +51,20 @@
 @import url("./blocks/about-me/__text/about-me__text.css");
 @import url("./blocks/about-me/__link/about-me__link.css");
 @import url("./blocks/about-me/__photo/about-me__photo.css");
+
+@import url("./blocks/portfolio/portfolio.css");
+@import url("./blocks/portfolio/__heading/portfolio__heading.css");
+@import url("./blocks/portfolio/__content/portfolio__content.css");
+@import url("./blocks/portfolio/__projects/portfolio__projects.css");
+@import url("./blocks/portfolio/__project/portfolio__project.css");
+@import url("./blocks/portfolio/__project-link/portfolio__project-link.css");
+@import url("./blocks/portfolio/__project-name/portfolio__project-name.css");
+@import url("./blocks/portfolio/__project-icon/portfolio__project-icon.css");
+
+@import url("./blocks/footer/footer.css");
+@import url("./blocks/footer/__name/footer__name.css");
+@import url("./blocks/footer/__container/footer__container.css");
+@import url("./blocks/footer/__project-name/footer__project-name.css");
+@import url("./blocks/footer/__links/footer__links.css");
+@import url("./blocks/footer/__item/footer__item.css");
+@import url("./blocks/footer/__link/footer__link.css");
