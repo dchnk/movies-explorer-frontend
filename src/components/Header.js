@@ -15,10 +15,10 @@ function Header(props) {
           <Link className="header__link header__link_type_sign-up">Регистрация</Link>
           <Link className="header__link header__link_type_sign-in">Войти</Link>
         </div>}
-        {props.loggedIn && location.pathname !== "/" && <div className="header__profile">
-          <Link className="header__link header__link_type_profile">Аккаунт</Link>
+        {props.loggedIn && location.pathname !== "/" && <Link className="header__profile" to="/profile">
+          <p className="header__link header__link_type_profile">Аккаунт</p>
           <span className="header__account-icon" />
-        </div>}
+        </Link>}
       </div>
     </header>
   );

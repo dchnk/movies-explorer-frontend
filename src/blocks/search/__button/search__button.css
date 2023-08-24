@@ -1,0 +1,12 @@
+.search__button {
+  font-size: 11px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
+  color: #FFF;
+  border-radius: 48px;
+  background: #3456F3;
+  border: none;
+  padding: 8px 10px;
+  cursor: pointer;
+}

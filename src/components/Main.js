@@ -6,7 +6,9 @@ import Techs from "./Techs";
 
 function Main() {
   return (
-    <main className='main'>
+    <main className='main' style={{
+      flex: "auto",
+    }}>
       <Promo/>
       <AboutProject/>
       <Techs/>

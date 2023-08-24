@@ -1,0 +1,31 @@
+.checkbox {
+  max-width: 1140px;
+  margin: 0 auto 200px;
+  display: flex;
+}
+
+.checkbox__switch {
+  display: block;
+  margin: 0 14px 0 70px;
+  width: 36px;
+  height: 20px;
+  background-image: url(../../images/smalltumboff.svg);
+  transition: .1s background-image linear;
+  cursor: pointer;
+}
+
+.checkbox__switch_type_active {
+  background-image: url(../../images/smalltumb.svg);
+}
+
+.checkbox__input {
+  visibility: hidden;
+}
+
+.checkbox__text {
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+  margin: 0;
+}
