@@ -1,6 +1,14 @@
 .checkbox {
-  max-width: 1140px;
+  width: 100%;
   margin: 0 0 48px;
+  display: flex;
+  justify-content: center;
+}
+
+.checkbox__content {
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 70px;
   display: flex;
 }
 
@@ -10,7 +18,7 @@
   width: 36px;
   height: 20px;
   background-image: url(../../images/smalltumboff.svg);
-  transition: .1s background-image linear;
+  transition: .2s ease;
   cursor: pointer;
 }
 
@@ -28,4 +36,10 @@
   font-weight: 400;
   line-height: 18px;
   margin: 0;
+}
+
+@media screen and (max-width: 847px){
+  .checkbox__content{
+    margin: 0 30px;
+  }
 }

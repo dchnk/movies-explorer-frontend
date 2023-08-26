@@ -6,8 +6,8 @@
 
 .movie__image {
   object-fit: cover;
-  width: 270px;
-  height: 151px;
+  width: 100%;
+  min-height: 151px;
 }
 
 .movie__container {
@@ -56,4 +56,44 @@
 
 .movie__like_active:hover {
   opacity: 0.8;
+}
+
+@media screen and (max-width: 989px){
+  .movie{
+    max-width: 339px;
+  }
+
+  .movie__image {
+    height: 190px;
+  }
+}
+
+@media screen and (max-width: 767px){
+  .movie{
+    max-width: 300px;
+  }
+
+  .movie__image {
+    height: 168px;
+  }
+}
+
+@media screen and (max-width: 629px){
+  .movie{
+    max-width: 400px;
+  }
+
+  .movie__image {
+    height: 230px;
+  }
+}
+
+@media screen and (max-width: 419px){
+  .movie{
+    max-width: 300px;
+  }
+
+  .movie__image {
+    height: 168px;
+  }
 }

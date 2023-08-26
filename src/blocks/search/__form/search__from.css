@@ -1,8 +1,22 @@
 .search__form {
-  margin: 0;
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 70px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   padding: 0 0 13px 0;
   border-bottom: 1px solid #E8E8E8;
+}
+
+@media screen and (max-width: 847px){
+  .search__form{
+    margin: 0 30px;
+  }
+}
+
+@media screen and (max-width: 767px){
+  .footer__content{
+    margin: 0 14px;
+  }
 }

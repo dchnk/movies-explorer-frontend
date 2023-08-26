@@ -11,10 +11,12 @@ function FilterCheckbox() {
 
   return (
     <div className='checkbox'>
+      <div className='checkbox__content'>
       <label className={checked ? ("checkbox__switch checkbox__switch_type_active") : ("checkbox__switch")}>
         <input className="checkbox__input" name="checkbox" id="checkbox" type="checkbox" onClick={handleChange}></input>
       </label>
       <p className="checkbox__text">Короткометражки</p>
+      </div>
     </div>
   );
 }
