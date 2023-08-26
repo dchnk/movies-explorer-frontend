@@ -2,6 +2,7 @@
 @import url("./vendor/normalize.css");
 
 @import url("./blocks/page.css");
+@import url("./blocks/main/main.css");
 
 @import url("./blocks/header/header.css");
 @import url("./blocks/header/__content/header__content.css");
@@ -72,9 +73,15 @@
 @import url("./blocks/footer/__item/footer__item.css");
 @import url("./blocks/footer/__link/footer__link.css");
 
+@import url("./blocks/movies/movies.css");
+
 @import url("./blocks/search/search.css");
 @import url("./blocks/search/__form/search__from.css");
 @import url("./blocks/search/__input/search__input.css");
 @import url("./blocks/search/__button/search__button.css");
 
 @import url("./blocks/checkbox/checkbox.css");
+
+@import url("./blocks/movie/movie.css");
+
+@import url("./blocks/movies-list/movies-list.css");

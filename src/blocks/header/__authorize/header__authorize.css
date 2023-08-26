@@ -1,4 +1,6 @@
 .header__authorize {
   display: block;
-  margin: auto 70px auto 0;
+  margin: auto 0;
+  grid-column-start: 3;
+  justify-self: end;
 }

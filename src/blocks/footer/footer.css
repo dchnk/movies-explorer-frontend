@@ -1,5 +1,6 @@
 .footer {
   max-width: 1140px;
-  margin: 0 auto 20px;
+  margin: 0 70px 20px;
+  align-self: center;
   width: 100%;
 }

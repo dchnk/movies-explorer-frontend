@@ -1,7 +1,14 @@
-.about-me {
+.about-me {  
+  margin: 0 auto 100px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.about-me__content {  
   max-width: 1140px;
   width: 100%;
-  margin: 0 auto 100px;
+  margin: 0 70px;
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: 1fr auto;

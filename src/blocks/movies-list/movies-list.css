@@ -1,0 +1,16 @@
+.movies-list {
+  margin: 70px auto 80px;
+  max-width: 1140px;
+  display: flex;
+  flex-direction: column;
+}
+
+.movies-list__cards {
+  list-style: none;
+  margin: 0 auto 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 270px 270px 270px 270px;
+  gap: 38px 20px;
+  grid-template-rows: auto;
+}

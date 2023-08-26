@@ -1,4 +1,8 @@
 .header {
   background-color: #073042;
-  
+  align-self: center;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }

@@ -1,6 +1,7 @@
 .about__road {
-  margin: 0 70px;
+  margin: 0;
   display: grid;
+  gap: 0;
   grid-template-rows: 1fr;
-  grid-template-columns: minmax(100px, 218px) minmax(80.71%, 1fr)
+  grid-template-columns: minmax(100px, 228px) minmax(184px, 912px);
 }

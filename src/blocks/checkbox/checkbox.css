@@ -1,12 +1,12 @@
 .checkbox {
   max-width: 1140px;
-  margin: 0 auto 200px;
+  margin: 0 0 48px;
   display: flex;
 }
 
 .checkbox__switch {
   display: block;
-  margin: 0 14px 0 70px;
+  margin: 0 14px 0 0;
   width: 36px;
   height: 20px;
   background-image: url(../../images/smalltumboff.svg);

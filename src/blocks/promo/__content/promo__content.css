@@ -1,8 +1,8 @@
 .promo__content {
   max-width: 1140px;
   width: 100%;
-  margin: 0 auto;
-  padding: 75px 0 50px 0;
+  padding: 75px 0 50px;
+  margin: 0 70px;
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-rows: minmax(174px, 1fr) auto auto;

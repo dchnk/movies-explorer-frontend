@@ -1,7 +1,7 @@
 .header__content {
   max-width: 1140px;
   width: 100%;
+  margin: 0 70px;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  margin: 0 auto;
+  grid-template-columns: 1fr 1fr 1fr;  
 }
