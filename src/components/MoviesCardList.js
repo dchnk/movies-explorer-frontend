@@ -21,10 +21,9 @@ function MoviesCardList() {
         <li className="movies-list__card"><MoviesCard/></li>
         <li className="movies-list__card"><MoviesCard/></li>
         <li className="movies-list__card"><MoviesCard/></li>
-        <li className="movies-list__card"><MoviesCard/></li>
       </ul>
       </div>
-      <button>Еще</button>
+      <button className="movies-list__button">Еще</button>
     </section>
   );
 }

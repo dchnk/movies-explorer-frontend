@@ -6,6 +6,7 @@
 
 @import url("./blocks/header/header.css");
 @import url("./blocks/header/__content/header__content.css");
+@import url("./blocks/header/__burger-menu/header__burger-menu.css");
 @import url("./blocks/header/__logo/header__logo.css");
 @import url("./blocks/header/_type/header_type_white-background-color.css");
 @import url("./blocks/header/__authorize/header__authorize.css");
