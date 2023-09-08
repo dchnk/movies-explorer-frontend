@@ -45,6 +45,20 @@
   transition: all .2s linear;
 }
 
+.movie__dislike {
+  height: 24px;
+  width: 24px;
+  opacity: 0;
+  cursor: pointer;
+  transition: all .2s linear;
+  background-image: url("../../images/d1.svg");
+}
+
+.movie__dislike:hover {
+  opacity: 1;
+  visibility: visible;
+}
+
 .movie__like:hover {
   opacity: 0.4;
   background-image: url("../../images/save1.svg");

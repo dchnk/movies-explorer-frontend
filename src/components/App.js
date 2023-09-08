@@ -3,6 +3,8 @@ import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import Movies from './Movies';
+import Profile from './Profile'
+import SavedMovies from './SavedMovies'
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -29,6 +31,8 @@ function App() {
         <Routes>
           <Route path='/' element={<Main />} />
           <Route path='/movies' element={<Movies />} />
+          <Route path='/saved-movies' element={<SavedMovies />} />
+          <Route path='/profile' element={<Profile />} />
         </Routes>
         <Footer />
       </div>

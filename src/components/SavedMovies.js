@@ -2,14 +2,14 @@ import FilterCheckbox from "./FilterCheckbox";
 import MoviesCardList from "./MoviesCardList";
 import SearchForm from "./SearchForm";
 
-function Movies() {
+function SavedMovies() {
   return (
     <main className='main'>
-      <SearchForm/>
-      <FilterCheckbox/>
-      <MoviesCardList/>
+      <SearchForm />
+      <FilterCheckbox />
+      <MoviesCardList />
     </main>
   );
 }
 
-export default Movies;
+export default SavedMovies;

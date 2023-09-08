@@ -1,6 +1,10 @@
 import MoviesCard from "./MoviesCard";
+import { useLocation } from "react-router-dom";
 
 function MoviesCardList() {
+
+  const location = useLocation();
+
   return (
     <section className="movies-list">
       <div className="movies-list__content">
@@ -8,22 +12,22 @@ function MoviesCardList() {
         <li className="movies-list__card"><MoviesCard/></li>
         <li className="movies-list__card"><MoviesCard/></li>
         <li className="movies-list__card"><MoviesCard/></li>
-        <li className="movies-list__card"><MoviesCard/></li>
-        <li className="movies-list__card"><MoviesCard/></li>
-        <li className="movies-list__card"><MoviesCard/></li>
-        <li className="movies-list__card"><MoviesCard/></li>
-        <li className="movies-list__card"><MoviesCard/></li>
-        <li className="movies-list__card"><MoviesCard/></li>
-        <li className="movies-list__card"><MoviesCard/></li>
-        <li className="movies-list__card"><MoviesCard/></li>
-        <li className="movies-list__card"><MoviesCard/></li>
-        <li className="movies-list__card"><MoviesCard/></li>
-        <li className="movies-list__card"><MoviesCard/></li>
-        <li className="movies-list__card"><MoviesCard/></li>
-        <li className="movies-list__card"><MoviesCard/></li>
+        {location.pathname === "/movies" && <li className="movies-list__card"><MoviesCard/></li>}
+        {location.pathname === "/movies" && <li className="movies-list__card"><MoviesCard/></li>}
+        {location.pathname === "/movies" && <li className="movies-list__card"><MoviesCard/></li>}
+        {location.pathname === "/movies" && <li className="movies-list__card"><MoviesCard/></li>}
+        {location.pathname === "/movies" && <li className="movies-list__card"><MoviesCard/></li>}
+        {location.pathname === "/movies" && <li className="movies-list__card"><MoviesCard/></li>}
+        {location.pathname === "/movies" && <li className="movies-list__card"><MoviesCard/></li>}
+        {location.pathname === "/movies" && <li className="movies-list__card"><MoviesCard/></li>}
+        {location.pathname === "/movies" && <li className="movies-list__card"><MoviesCard/></li>}
+        {location.pathname === "/movies" && <li className="movies-list__card"><MoviesCard/></li>}
+        {location.pathname === "/movies" && <li className="movies-list__card"><MoviesCard/></li>}
+        {location.pathname === "/movies" && <li className="movies-list__card"><MoviesCard/></li>}
+        {location.pathname === "/movies" && <li className="movies-list__card"><MoviesCard/></li>}
       </ul>
       </div>
-      <button className="movies-list__button">Еще</button>
+      {location.pathname === "/movies" && <button className="movies-list__button">Еще</button>}
     </section>
   );
 }

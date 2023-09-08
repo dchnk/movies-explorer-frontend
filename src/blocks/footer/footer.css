@@ -1,5 +1,5 @@
 .footer {
-  margin: 0 auto 20px;
+  margin: 70px auto 20px;
   align-self: center;
   width: 100%;
   display: flex;
@@ -12,14 +12,14 @@
   width: 100%;
 }
 
-@media screen and (max-width: 847px){
-  .footer__content{
+@media screen and (max-width: 847px) {
+  .footer__content {
     margin: 0 30px;
   }
 }
 
-@media screen and (max-width: 767px){
-  .footer__content{
+@media screen and (max-width: 767px) {
+  .footer__content {
     margin: 0 10px;
   }
 }
