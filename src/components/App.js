@@ -7,6 +7,7 @@ import Profile from './Profile'
 import SavedMovies from './SavedMovies'
 import { Route, Routes } from 'react-router-dom';
 import { Register } from './Register';
+import { Login } from './Login';
 
 function App() {
 
@@ -30,7 +31,7 @@ function App() {
       <div className='page__content'>
         <Header loggedIn={loggedIn} isMobile={isMobile} />
         <Routes>
-          {/* <Route path="/signin" element={<Login />} /> */}
+          <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<Register />} />
           <Route path='/' element={<Main />} />
           <Route path='/movies' element={<Movies />} />

@@ -1,6 +1,6 @@
 .navigation{
   display: block;
-  margin: auto;
+  margin: 27px auto;
 }
 
 @media screen and (max-width: 800px) {

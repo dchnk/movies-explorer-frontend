@@ -4,6 +4,16 @@
   width: 100%;
 }
 
+.register__logo {
+  width: 38px;
+  height: 38px;
+}
+
+.register__link-logo {
+  max-width: 38px;
+  margin: 0;
+}
+
 .register__form {
   max-width: 396px;
   width: 100%;
@@ -17,17 +27,25 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  padding: 0;
+  margin: 36px 0 42px;
 }
 
 .register__input {
+  padding: 0 0 10px 0;
+  margin: 5px 0;
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
   border: none;
   background-color: transparent;
-  padding-bottom: 10px;
   border-bottom: 1px solid #E8E8E8;
+  outline: none;
+}
+
+.register__input:focus {
+  border-bottom: 1px solid #3456F3;
 }
 
 .register__input_error {
@@ -36,19 +54,22 @@
 
 .register__input-error {
   color: #FF3055;
-  font-family: Inter;
   font-size: 10px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  display: none;
+  visibility: hidden;
+  margin: 6px 0 0;
+  padding: 0;
 }
 
 .register__input-error_active {
-  display: block;
+  visibility: visible;
 }
 
 .register__placeholder {
+  padding: 0;
+  margin: 0;
   font-size: 10px;
   font-style: normal;
   font-weight: 400;
@@ -56,11 +77,15 @@
   color: #A0A0A0;
 }
 
-.register__input_type_password {}
+.register__input_type_password {
+  margin-bottom: 0;
+}
 
 .register__submit {
+  display: block;
+  margin: 134px auto 16px;
   border-radius: 3px;
-  background: #3456F3;
+  background-color: #3456F3;
   height: 45px;
   width: 100%;
   color: white;
@@ -68,7 +93,31 @@
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
-  line-height: normal;  
+  line-height: normal;
+  cursor: pointer;
+  transition: background-color .1s ease-in-out;
 }
 
-.register__question {}
+.register__submit:hover {
+  background-color: rgba(52, 87, 243, 0.8);
+}
+
+.register__question {
+  color: #A0A0A0;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+.register__link {
+  color: #3456F3;
+  text-decoration: none;
+  transition: opacity .1s ease-in-out;
+}
+
+.register__link:hover {
+  opacity: 0.7;
+}
