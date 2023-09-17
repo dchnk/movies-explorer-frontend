@@ -25,15 +25,16 @@ function Header(props) {
   const location = useLocation();
 
   return (
-    <header className={location.pathname === "/" ? ("header") : ("header header_type_white-background-color")}>
+    <>
+    {location.pathname !== "/signin" && location.pathname !== "/signup" && <header className={location.pathname === "/" ? ("header") : ("header header_type_white-background-color")}>
       <div className="header__content" style={{
         gridTemplateColumns: location.pathname === "/" && "auto 1fr"
       }}>
         <Link to="/"><img className="header__logo" src={Logo} alt="логотип" /></Link>
         {loggedIn && !isMobile && <Navigation isMobile={isMobile} />}
         {!loggedIn && <div className="header__authorize" >
-          <Link className="header__link header__link_type_sign-up">Регистрация</Link>
-          <Link className="header__link header__link_type_sign-in">Войти</Link>
+          <Link to="/signup" className="header__link header__link_type_sign-up">Регистрация</Link>
+          <Link to="/signin" className="header__link header__link_type_sign-in">Войти</Link>
         </div>}
         {loggedIn && !isMobile && <Link className="header__profile" to="/profile" style={{
           gridColumnStart: location.pathname === "/" && "3"
@@ -61,7 +62,8 @@ function Header(props) {
           </div>
         </div>}
       </div>
-    </header>
+    </header>}
+    </>
   );
 }
 

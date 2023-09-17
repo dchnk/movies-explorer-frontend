@@ -1,0 +1,74 @@
+.register {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+}
+
+.register__form {
+  max-width: 396px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.register__heading {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.register__input {
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+  background-color: transparent;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.register__input_error {
+  color: #FF3055;
+}
+
+.register__input-error {
+  color: #FF3055;
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  display: none;
+}
+
+.register__input-error_active {
+  display: block;
+}
+
+.register__placeholder {
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #A0A0A0;
+}
+
+.register__input_type_password {}
+
+.register__submit {
+  border-radius: 3px;
+  background: #3456F3;
+  height: 45px;
+  width: 100%;
+  color: white;
+  border: none;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;  
+}
+
+.register__question {}
