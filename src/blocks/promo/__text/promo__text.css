@@ -9,3 +9,12 @@
   margin: 36px 0 auto;
   grid-column-start: 1;
 }
+
+@media screen and (max-width: 847px) {
+  .promo__text {    
+    text-align: center;
+    justify-self: center;
+    max-width: 260px;
+    margin: 20px 0 auto;
+  }
+}

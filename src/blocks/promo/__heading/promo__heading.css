@@ -7,3 +7,11 @@
   color: white;
   margin: 0 auto;
 }
+
+@media screen and (max-width: 847px) {
+  .promo__heading {
+    font-size: 40px;
+    line-height: 50px;
+    text-align: center;
+  }
+}

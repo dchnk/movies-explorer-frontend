@@ -2,6 +2,7 @@
   0% {
     transform: rotate(0);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -14,6 +15,14 @@
   grid-row-start: 1;
   grid-row-end: 4;
   grid-column-start: 2;
-  animation: 86.4s infinite rotation linear;
+  /* animation: 86.4s infinite rotation linear; */
   justify-self: end;
+}
+
+@media screen and (max-width: 847px) {
+  .promo__image {
+    grid-column-start: 1;
+    justify-self: center;
+    margin: 63px auto 49px;
+  }
 }
