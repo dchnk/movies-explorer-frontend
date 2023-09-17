@@ -26,7 +26,7 @@ function Header(props) {
 
   return (
     <>
-    {location.pathname !== "/signin" && location.pathname !== "/signup" && <header className={location.pathname === "/" ? ("header") : ("header header_type_white-background-color")}>
+    {location.pathname !== "/signin" && location.pathname !== "/signup" && location.pathname !== "/404" && <header className={location.pathname === "/" ? ("header") : ("header header_type_white-background-color")}>
       <div className="header__content" style={{
         gridTemplateColumns: location.pathname === "/" && "auto 1fr"
       }}>

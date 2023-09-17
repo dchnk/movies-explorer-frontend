@@ -8,6 +8,7 @@ import SavedMovies from './SavedMovies'
 import { Route, Routes } from 'react-router-dom';
 import { Register } from './Register';
 import { Login } from './Login';
+import { PageNotFound } from './PageNotFound';
 
 function App() {
 
@@ -37,6 +38,7 @@ function App() {
           <Route path='/movies' element={<Movies />} />
           <Route path='/saved-movies' element={<SavedMovies />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/404' element={<PageNotFound />}/>
         </Routes>
         <Footer />
       </div>
