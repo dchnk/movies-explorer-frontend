@@ -81,6 +81,10 @@
 @media screen and (max-width: 419px) {
   .movies-list__cards {
     grid-template-columns: 300px;
-    gap: 34px;
+    gap: 32px;
+  }
+  
+  .movies-list {
+    margin: 43px 0 80px;
   }
 }

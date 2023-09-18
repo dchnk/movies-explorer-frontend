@@ -56,25 +56,29 @@
   margin: 0;
 }
 
-@media screen and (max-width: 847px){
-  .checkbox__content{
+@media screen and (max-width: 847px) {
+  .checkbox__content {
     margin: 0 30px;
     flex-direction: row-reverse;
   }
-  
+
   .checkbox__switch {
     margin: 2px 1px 0 16px;
   }
 }
 
-@media screen and (max-width: 400px){
-  .checkbox__content{
+@media screen and (max-width: 400px) {
+  .checkbox__content {
     margin: 0;
     justify-content: center;
-    flex-direction: row;
+    flex-direction: row-reverse;
   }
-  
+
   .checkbox__switch {
-    margin: 0 13px 0 0;    
+    margin: 2px 0 0 13px;
+  }
+
+  .checkbox__text {
+    font-size: 11px;
   }
 }

@@ -10,3 +10,9 @@
     margin: 77px 0 30px;
   }
 }
+
+@media screen and (max-width: 400px) {
+  .search {
+    margin: 81px 0 30px;
+  }
+}

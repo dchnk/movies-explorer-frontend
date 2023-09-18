@@ -16,6 +16,7 @@
 .profile__info {
   display: flex;
   flex-direction: column;
+  margin: 0 30px;
 }
 
 .profile__container {
@@ -103,4 +104,45 @@
 
 .profile__submit-error_active {
   visibility: visible;
+}
+
+@media screen and (max-width: 768px) {
+  .profile {
+    margin: 37px auto 70px;
+  }
+  
+  .profile__heading {
+    margin: 0 auto 96px;
+  }
+  
+  .profile__button {
+    margin: 209px auto 14px;
+  }
+  
+  .profile__button_type_exit{
+    margin: 0 auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .profile {
+    margin: 67px auto 40px;
+  }
+  
+  .profile__heading {
+    margin: 0 auto 80px;
+  }
+  
+  .profile__button {
+    margin: 377px auto 14px;
+    font-size: 12px;
+  }
+  
+  .profile__button_type_exit{
+    margin: 0 auto;
+  }
+  
+  .profile__submit-error {
+    margin: 346px auto 20px;
+  }
 }

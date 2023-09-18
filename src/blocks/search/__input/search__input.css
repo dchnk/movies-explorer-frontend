@@ -11,6 +11,13 @@
   outline: none;
 }
 
-.search__input::placeholder{
+.search__input::placeholder {
   color: #A0A0A0;
+}
+
+
+@media screen and (max-width: 400px) {
+  .search__input {
+    font-size: 18px;
+  }
 }

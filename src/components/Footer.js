@@ -6,7 +6,7 @@ function Footer() {
 
   return (
     <>
-      {location.pathname !== "/signin" && location.pathname !== "/signup" && location.pathname !== "/404" && <footer className='footer'>
+      {location.pathname !== "/signin" && location.pathname !== "/profile" && location.pathname !== "/signup" && location.pathname !== "/404" && <footer className='footer'>
         <div className="footer__content">
           <p className="footer__name">Учебный проект Яндекс.Практикум х BeatFilm.</p>
           <div className="footer__container">

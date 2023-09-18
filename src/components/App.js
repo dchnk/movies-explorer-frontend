@@ -12,7 +12,7 @@ import { PageNotFound } from './PageNotFound';
 
 function App() {
 
-  const [loggedIn, setLoggedIn] = React.useState(true);
+  const [loggedIn, setLoggedIn] = React.useState(false);
   const [screenWidth, setScreenWidth] = React.useState(window.innerWidth);
   const isMobile = screenWidth <= 800;
 
