@@ -4,3 +4,9 @@
   display: flex;
   justify-content: center;
 }
+
+@media screen and (max-width: 768px) {
+  .search {
+    margin: 77px 0 30px;
+  }
+}

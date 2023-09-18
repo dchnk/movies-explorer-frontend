@@ -3,5 +3,5 @@
   display: grid;
   gap: 0;
   grid-template-rows: 1fr;
-  grid-template-columns: minmax(100px, 21%) minmax(184px, 912px);
+  grid-template-columns: minmax(100px, 20%) minmax(184px, 912px);
 }

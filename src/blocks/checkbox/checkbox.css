@@ -14,16 +14,34 @@
 
 .checkbox__switch {
   display: block;
-  margin: 0 14px 0 0;
-  width: 36px;
-  height: 20px;
-  background-image: url(../../images/smalltumboff.svg);
-  transition: .2s ease;
+  margin: 3px 14px 0 0;
+  width: 34px;
+  height: 14px;
+  border-radius: 20px;
+  background-color: #C4C4C4;
+  transition: background-color .2s ease-in-out;
   cursor: pointer;
+  position: relative;
 }
 
 .checkbox__switch_type_active {
-  background-image: url(../../images/smalltumb.svg);
+  background-color: #2BE080;
+}
+
+.checkbox__toggle {
+  width: 10px;
+  height: 10px;
+  background-color: #EBEBEB;
+  border-radius: 50%;
+  padding: 0;
+  z-index: 20;
+  transform: translate(2px, 2px);
+  transition: transform .4s ease-in-out;
+}
+
+.checkbox__toggle_type_active {
+  transform: translate(22px, 2px);
+  background-color: white;
 }
 
 .checkbox__input {
@@ -45,7 +63,7 @@
   }
   
   .checkbox__switch {
-    margin: 0 0 0 16px;
+    margin: 2px 1px 0 16px;
   }
 }
 
