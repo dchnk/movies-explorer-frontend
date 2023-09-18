@@ -99,6 +99,10 @@
   transition: background-color .1s ease-in-out;
 }
 
+.register__submit_type_login {
+  margin: 202px auto 16px;
+}
+
 .register__submit:hover {
   background-color: rgba(52, 87, 243, 0.8);
 }
@@ -143,5 +147,9 @@
   .register__heading {
     text-align: center;
     margin: 0 auto 80px;
+  }
+  
+  .register__submit_type_login {
+    margin: 289px auto 0;
   }
 }
