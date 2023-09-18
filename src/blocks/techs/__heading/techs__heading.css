@@ -9,3 +9,25 @@
   border-bottom: 1px solid black;
   text-align: start;
 }
+
+@media screen and (max-width: 847px) {
+  .techs__heading {
+    margin: 0 50px 80px;
+    padding: 91px 0 23px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .techs__heading {
+    margin: 0 18px 80px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .techs__heading {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+    padding: 64px 0 28px;
+    margin: 0 18px 49px;
+  }
+}

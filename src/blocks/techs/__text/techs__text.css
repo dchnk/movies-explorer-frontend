@@ -7,3 +7,22 @@
   margin: 0 auto 100px;
   max-width: 460px;
 }
+
+@media screen and (max-width: 847px) {
+  .techs__text {
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: -0.48px;
+    margin: 0 auto 83px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .techs__text {
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: -0.44px;
+    max-width: 292px;
+    margin: 0 auto 50px;
+  }
+}

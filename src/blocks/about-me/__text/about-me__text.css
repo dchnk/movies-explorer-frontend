@@ -6,3 +6,36 @@
   line-height: 22px;
   margin: 0 0 100px;
 }
+
+@media screen and (max-width: 1100px) {
+  .about-me__text {
+    font-size: 12px;
+    line-height: 18px;
+    max-width: 364px;
+    margin: 0 0 87px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  .about-me__text {
+    font-size: 12px;
+    line-height: 18px;
+    
+    margin: 0 50px 87px 0;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .about-me__text {
+    margin: 0 0 87px 0;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .about-me__text {
+    font-size: 11px;
+    line-height: 16px;
+    margin: 0 0 40px 0;
+  }
+}

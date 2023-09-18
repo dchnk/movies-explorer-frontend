@@ -6,3 +6,17 @@
   letter-spacing: -2px;
   margin: 0 auto 26px;
 }
+
+@media screen and (max-width: 847px) {
+  .techs__paragraph {
+    margin: 0 auto 22px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .techs__paragraph {
+    font-size: 30px;
+    letter-spacing: -1.2px;
+    margin: 0 auto 13px;
+  }
+}

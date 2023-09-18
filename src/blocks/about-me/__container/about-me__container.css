@@ -4,3 +4,11 @@
   flex-direction: column;
   grid-row-start: 2;
 }
+
+@media screen and (max-width: 580px) {
+  .about-me__container {
+    grid-row-start: 3;
+    grid-column-start: 1;
+    margin: 40px 0 0;
+  }
+}

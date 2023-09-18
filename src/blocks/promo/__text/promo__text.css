@@ -18,3 +18,9 @@
     margin: 20px 0 auto;
   }
 }
+
+@media screen and (max-width: 550px) {
+  .promo__text {
+    margin: 24px 0 auto;
+  }
+}

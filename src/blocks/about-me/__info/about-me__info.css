@@ -5,3 +5,20 @@
   font-weight: 500;
   line-height: 20px;
 }
+
+@media screen and (max-width: 847px) {
+  .about-me__info {
+    font-size: 12px;
+    line-height: 18px;
+    margin: 0 0 20px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .about-me__info {
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 16px;
+  }
+}

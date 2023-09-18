@@ -7,3 +7,9 @@
   line-height: normal;
   margin: 0;
 }
+
+@media screen and (max-width: 550px) {
+  .footer__link {
+    font-size: 12px;
+  }
+}

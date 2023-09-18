@@ -8,3 +8,18 @@
   padding-bottom: 23px;
   border-bottom: 1px solid black;
 }
+
+@media screen and (max-width: 847px) {
+  .about__heading {
+    margin: 92px 0 49px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .about__heading {
+    padding: 4px 0 28px;
+    font-size: 18px;
+    letter-spacing: -0.72px;
+    margin: 67px 0 43px;
+  }
+}

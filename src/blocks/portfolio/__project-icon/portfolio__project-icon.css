@@ -8,3 +8,11 @@
   line-height: 60px;
   letter-spacing: -1.2px;
 }
+
+@media screen and (max-width: 550px) {
+  .portfolio__project-icon {
+    font-size: 18px;    
+    line-height: 28px;
+    letter-spacing: -0.72px;
+  }
+}

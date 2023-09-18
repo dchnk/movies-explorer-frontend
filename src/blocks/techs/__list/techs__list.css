@@ -4,4 +4,26 @@
   padding: 0;
   display: flex;
   justify-content: center;
+  gap: 10px;
+}
+
+@media screen and (max-width: 847px) {
+  .techs__list {
+    margin: 0 60px;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .techs__list {
+    margin: 0 18px;
+    flex-wrap: wrap;
+  }
+}
+
+@media screen and (max-width: 446px) {
+  .techs__list {
+    display: grid;
+    grid-template-columns: 84px 84px;
+    gap: 10px
+  }
 }

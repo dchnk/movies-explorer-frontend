@@ -8,3 +8,23 @@
   margin: 0 0 18px;
   padding: 0;
 }
+
+@media screen and (max-width: 847px) {
+  .about-me__name {
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: -1.6px;
+    margin: 0 0 15px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .about-me__name {
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: -1.2px;
+    margin: 0 0 20px;
+  }
+}

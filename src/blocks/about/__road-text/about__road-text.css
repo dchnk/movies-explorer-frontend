@@ -5,3 +5,10 @@
   line-height: 17px;
   color: #A0A0A0;
 }
+
+@media screen and (max-width: 550px) {
+  .about__road-text {
+    font-size: 11px;
+    margin: 7px 0 0;
+  }
+}

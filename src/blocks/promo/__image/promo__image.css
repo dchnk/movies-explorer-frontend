@@ -26,3 +26,11 @@
     margin: 63px auto 49px;
   }
 }
+
+@media screen and (max-width: 550px) {
+  .promo__image {
+    width: 210px;
+    height: 206px;
+    margin: 63px auto 44px;
+  }
+}
