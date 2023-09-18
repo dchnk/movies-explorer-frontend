@@ -6,13 +6,14 @@
 
 .header__burger-menu-icon {
   background-image: url("../../../images/menu-icon__burger.svg");
-  width: 44px;
-  height: 44px;
+  width: 33px;
+  height: 33px;
   margin: auto;
   cursor: pointer;
   z-index: 2000;
   background-position: center center;
   background-size: contain;
+  transform: translate(8px, 0);
 }
 
 .header__burger-menu-icon_active {
@@ -70,7 +71,8 @@
 
 @media screen and (max-width: 400px){  
   .header__burger-menu-icon{
-    width: 37px;
+    margin: 10px 7px 0 0;
+    width: 32px;
     height: 40px;
   }
 }

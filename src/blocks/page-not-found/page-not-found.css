@@ -31,3 +31,29 @@
   padding: 0;
   text-decoration: none;
 }
+
+@media screen and (max-width: 800px) {
+  .page-not-found {
+    margin: 408px auto auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .page-not-found {
+    margin: 330px auto auto;
+  }
+
+  .page-not-found__error-number {
+    font-size: 80px;
+    margin: 0 auto 10px;
+  }
+
+  .page-not-found__error-text {
+    font-size: 12px;
+    margin: 0 auto 281px;
+  }
+
+  .page-not-found__link {
+    font-size: 12px;
+  }
+}
