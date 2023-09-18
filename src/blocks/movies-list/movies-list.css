@@ -51,6 +51,10 @@
     grid-template-columns: repeat(2, 339px);
     gap: 30px 30px;
   }
+  
+  .movies-list {
+    margin: 82px 0 80px;
+  }
 }
 
 @media screen and (max-width: 767px) {
