@@ -84,11 +84,17 @@
   width: 100%;
   height: 45px;
   border: none;
-  color: white;
+  color: rgb(255, 255, 255);
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  cursor: pointer;
+  transition: background-color .1s ease-in-out;
+}
+
+.profile__submit:hover {
+  background-color: rgba(53, 88, 243, 0.8);
 }
 
 .profile__submit-error {

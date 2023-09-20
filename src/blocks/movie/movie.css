@@ -43,12 +43,20 @@
   background-image: url("../../images/save1d.svg");
   cursor: pointer;
   transition: all .2s linear;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
 }
 
 .movie__dislike {
   height: 24px;
   width: 24px;
   opacity: 0;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
   cursor: pointer;
   transition: all .2s linear;
   background-image: url("../../images/d1.svg");

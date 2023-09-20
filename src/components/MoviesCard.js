@@ -21,8 +21,8 @@ function MoviesCard() {
       <img className="movie__image" alt="картинка фильма" src={MovieImage} />
       <div className="movie__container">
         <p className="movie__name">Книготорговцы</p>
-        {location.pathname === "/movies" && <div className={isLiked ? ("movie__like movie__like_active") : ("movie__like")} onClick={handleLikeClick} />}
-        {location.pathname === "/saved-movies" && <div className="movie__dislike" onClick={handleDisikeClick} />}
+        {location.pathname === "/movies" && <button className={isLiked ? ("movie__like movie__like_active") : ("movie__like")} onClick={handleLikeClick} />}
+        {location.pathname === "/saved-movies" && <button className="movie__dislike" onClick={handleDisikeClick} />}
       </div>
       <p className="movie__duration">1ч 42м</p>
     </div>

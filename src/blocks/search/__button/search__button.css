@@ -9,4 +9,9 @@
   border: none;
   padding: 8px 13px;
   cursor: pointer;
+  transition: background-color .1s ease-in-out;
+}
+
+.search__button:hover {
+  background-color: rgba(53, 88, 243, 0.8);
 }

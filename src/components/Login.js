@@ -28,7 +28,7 @@ export const Login = ({ onSubmit }) => {
     <div className="register">
       <form className="register__form" name="register" id="register" onSubmit={handleSubmit}>
         <Link to="/" className="register__link-logo"><img className="register__logo" src={Logo} alt="логотип" /></Link>
-        <h2 className="register__heading">Рады видеть!</h2>
+        <h1 className="register__heading">Рады видеть!</h1>
         <p className="register__placeholder">E-mail</p>
         <input className="register__input" onChange={handleChange} value={formValues.email} name="email" autoComplete="email" id="register-email" type="email" placeholder="" required></input>
         <span className="register__input-error register-input-email-error">Вы пропустили это поле.</span>

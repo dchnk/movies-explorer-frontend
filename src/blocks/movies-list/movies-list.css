@@ -38,6 +38,11 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  transition: background-color .3s ease-in-out;
+}
+
+.movies-list__button:hover {
+  background: rgba(230, 230, 230, 0.8);
 }
 
 @media screen and (max-width: 1279px) {
