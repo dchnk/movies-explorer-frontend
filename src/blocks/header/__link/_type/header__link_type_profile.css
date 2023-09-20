@@ -2,3 +2,12 @@
   color: black;
   margin: auto 7px auto 11px;
 }
+
+@media screen and (max-width: 400px) {
+  .header__link_type_profile {
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 12px;
+  }
+}
