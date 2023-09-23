@@ -1,0 +1,25 @@
+.portfolio__project {
+  margin: 0 0 10px;
+  padding: 0 0 19px;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+.portfolio__project:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+@media screen and (max-width: 847px) {
+  .portfolio__project {
+    margin: 0 0 19px;
+    padding: 0 0 9px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .portfolio__project {
+    margin: 0 0 21px;
+    padding: 0 0 18px;
+  }
+}

@@ -1,0 +1,12 @@
+.header__authorize {
+  display: block;
+  margin: auto 0;
+  grid-column-start: 3;
+  justify-self: end;
+}
+
+@media screen and (max-width: 450px) {
+  .header__authorize {
+    margin: 26px 0 auto;
+  }
+}

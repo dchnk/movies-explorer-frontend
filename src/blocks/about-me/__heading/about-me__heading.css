@@ -1,0 +1,27 @@
+.about-me__heading {
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.88px;
+  margin: 111px 0 66px;
+  padding-bottom: 23px;
+  border-bottom: 1px solid black;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+@media screen and (max-width: 847px) {
+  .about-me__heading {
+    margin: 91px 0 67px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .about-me__heading {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+    margin: 51px 0 60px;
+    padding-bottom: 28px;
+  }
+}

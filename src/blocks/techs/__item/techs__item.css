@@ -1,0 +1,30 @@
+.techs__item {
+  padding: 0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.56px;
+  max-width: 90px;
+  width: 100%;
+  height: 60px;
+  border-radius: 10px;
+  background: #E8E8E8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-right: 10px; */
+}
+
+/* .techs__item:last-child {
+  margin-right: 0;
+} */
+
+
+@media screen and (max-width: 847px) {
+  .techs__item {
+    font-size: 12px;
+    letter-spacing: -0.48px;
+    height: 57px;
+  }
+}

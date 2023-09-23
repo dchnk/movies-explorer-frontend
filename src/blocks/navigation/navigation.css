@@ -1,0 +1,21 @@
+.navigation{
+  display: block;
+  margin: 27px auto;
+}
+
+@media screen and (max-width: 800px) {
+  .navigation{
+    display: flex;
+    flex-direction: column;
+    margin: 158px auto auto;
+    align-items: center;
+    height: 55%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .navigation{
+    margin: 144px auto auto;
+    height: 60%;
+  }
+}

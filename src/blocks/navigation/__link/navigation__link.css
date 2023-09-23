@@ -1,0 +1,31 @@
+.navigation__link {
+  color: black;
+  text-decoration: none;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 16px;
+  padding-bottom: 8px;
+  margin: 0 16px 0 0;
+}
+
+.navigation__link:last-child {
+  margin: 0;
+}
+
+@media screen and (max-width: 800px) {
+  .navigation__link {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: normal;
+    margin: 0 0 24px;
+    padding-bottom: 4px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .navigation__link {
+    margin: 0 0 17px;
+    padding-bottom: 7px;
+  }
+}

@@ -1,0 +1,11 @@
+.page__content {
+  font-family: 'Inter', Arial, sans-serif;
+  font-weight: normal;
+  text-rendering: optimizeLegibility;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+  align-items: center
+}

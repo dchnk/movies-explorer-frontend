@@ -1,0 +1,31 @@
+.footer {
+  margin: 79px auto 20px;
+  align-self: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.footer__content {
+  max-width: 1140px;
+  margin: 0 70px;
+  width: 100%;
+}
+
+@media screen and (max-width: 847px) {
+  .footer__content {
+    margin: 0 30px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .footer__content {
+    margin: 0 10px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .footer {
+    margin: 67px auto 20px;
+  }
+}

@@ -1,0 +1,14 @@
+.about__part {
+  max-width: 550px;
+  margin-right: 40px;
+}
+
+.about__part:last-child {
+  margin-right: 0;
+}
+
+@media screen and (max-width: 550px) {
+  .about__part {
+    margin: 0 0 39px;
+  }
+}

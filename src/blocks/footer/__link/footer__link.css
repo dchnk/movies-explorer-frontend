@@ -1,0 +1,15 @@
+.footer__link {
+  text-decoration: none;
+  color: black;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+@media screen and (max-width: 550px) {
+  .footer__link {
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,6 @@
+.about__road-part {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

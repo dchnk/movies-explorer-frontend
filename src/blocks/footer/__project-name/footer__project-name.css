@@ -1,0 +1,17 @@
+.footer__project-name {
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+  padding: 0;
+  color: black;
+}
+
+@media screen and (max-width: 550px) {
+  .footer__project-name {
+    color: #A0A0A0;
+    font-size: 12px;
+    margin: 30px 0 0;
+  }
+}

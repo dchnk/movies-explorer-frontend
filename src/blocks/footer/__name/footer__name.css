@@ -1,0 +1,21 @@
+.footer__name {
+  color: #A0A0A0;
+  text-align: center;
+  font-size: 13px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0 auto 20px;
+  padding: 0 0 20px 0;
+  border-bottom: 1px solid #E8E8E8;
+}
+
+@media screen and (max-width: 550px) {
+  .footer__name {
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;    
+    margin: 0 auto 28px;
+  }
+}

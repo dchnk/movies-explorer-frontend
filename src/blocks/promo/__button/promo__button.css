@@ -1,0 +1,28 @@
+.promo__button {
+  max-width: 129px;
+  max-height: 36px;
+  margin: 142px 0 26px;
+  padding: 10px 19px;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 16px;
+  color: white;
+  border-radius: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background-color: transparent;
+  grid-column-start: 1;  
+}
+
+@media screen and (max-width: 847px) {
+  .promo__button {
+    justify-self: center;
+    margin: 92px 0 auto;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .promo__button {
+    margin: 80px 0 auto;
+  }
+}

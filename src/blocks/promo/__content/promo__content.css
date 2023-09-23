@@ -1,0 +1,24 @@
+.promo__content {
+  max-width: 1140px;
+  width: 100%;
+  padding: 75px 0 50px;
+  margin: 0 70px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: minmax(174px, 1fr) auto auto;
+}
+
+@media screen and (max-width: 847px) {
+  .promo__content {
+    grid-template-columns: 1fr;
+    grid-template-rows: minmax(174px, 1fr) auto auto;
+    padding: 75px 0 76px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .promo__content {
+    padding: 4px 0 30px;
+    margin: 0 auto;
+  }
+}

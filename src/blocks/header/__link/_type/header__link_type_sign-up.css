@@ -1,0 +1,9 @@
+.header__link_type_sign-up {
+  margin-right: 30px;
+}
+
+@media screen and (max-width: 450px) {
+  .header__link_type_sign-up {
+    margin-right: 15px;
+  }
+}

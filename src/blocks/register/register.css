@@ -1,0 +1,155 @@
+.register {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  justify-content: center;
+}
+
+.register__logo {
+  width: 38px;
+  height: 38px;
+}
+
+.register__link-logo {
+  max-width: 38px;
+  margin: 0;
+}
+
+.register__form {
+  max-width: 396px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: auto 30px;
+}
+
+.register__heading {
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  padding: 0;
+  margin: 36px 0 42px;
+}
+
+.register__input {
+  padding: 0 0 10px 0;
+  margin: 5px 0;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  border: none;
+  background-color: transparent;
+  border-bottom: 1px solid #E8E8E8;
+  outline: none;
+}
+
+.register__input:focus {
+  border-bottom: 1px solid #3456F3;
+}
+
+.register__input_error {
+  color: #FF3055;
+}
+
+.register__input-error {
+  color: #FF3055;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  visibility: hidden;
+  margin: 6px 0 0;
+  padding: 0;
+}
+
+.register__input-error_active {
+  visibility: visible;
+}
+
+.register__placeholder {
+  padding: 0;
+  margin: 0;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  color: #A0A0A0;
+}
+
+.register__input_type_password {
+  margin-bottom: 0;
+}
+
+.register__submit {
+  display: block;
+  margin: 134px auto 16px;
+  border-radius: 3px;
+  background-color: #3456F3;
+  height: 45px;
+  width: 100%;
+  color: white;
+  border: none;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  cursor: pointer;
+  transition: background-color .1s ease-in-out;
+}
+
+.register__submit_type_login {
+  margin: 202px auto 16px;
+}
+
+.register__submit:hover {
+  background-color: rgba(52, 87, 243, 0.8);
+}
+
+.register__question {
+  color: #A0A0A0;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+
+.register__link {
+  color: #3456F3;
+  text-decoration: none;
+  transition: opacity .1s ease-in-out;
+}
+
+.register__link:hover {
+  opacity: 0.7;
+}
+
+@media screen and (max-width: 480px) {
+  .register__submit {
+    margin: 222px auto 0;
+    width: 260px;
+    height: 45px;
+    font-size: 12px;
+  }
+  
+  .register__question {
+    font-size: 12px;
+    margin: 14px auto 0;
+  }
+  
+  .register__link-logo {
+    margin: 25px auto 50px;
+  }
+  
+  .register__heading {
+    text-align: center;
+    margin: 0 auto 80px;
+  }
+  
+  .register__submit_type_login {
+    margin: 289px auto 0;
+  }
+}

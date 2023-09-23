@@ -1,0 +1,12 @@
+.portfolio {
+  width: 100%;
+  margin-bottom: 115px;
+  display: flex;
+  justify-content: center;
+}
+
+@media screen and (max-width: 847px) {
+  .portfolio {
+    margin-bottom: 81px;
+  }
+}

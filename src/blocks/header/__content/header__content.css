@@ -1,0 +1,19 @@
+.header__content {
+  max-width: 1140px;
+  width: 100%;
+  margin: 0 70px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;  
+}
+
+@media screen and (max-width: 847px){
+  .header__content{
+    margin: 0 30px;
+  }
+}
+
+@media screen and (max-width: 767px){
+  .header__content{
+    margin: 0 14px;
+  }
+}

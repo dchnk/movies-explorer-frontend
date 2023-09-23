@@ -1,0 +1,23 @@
+.about__part-name {
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: -0.8px;
+  margin-bottom: 26px;
+  padding: 0;
+}
+
+@media screen and (max-width: 847px) {
+  .about__part-name {
+    margin-bottom: 22px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .about__part-name {
+    font-size: 18px;
+    letter-spacing: -0.72px;
+    margin-bottom: 17px;
+  }
+}
