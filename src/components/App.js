@@ -14,11 +14,8 @@ function App() {
 
   const [loggedIn, setLoggedIn] = React.useState(true);
   const [screenWidth, setScreenWidth] = React.useState(window.innerWidth);
+  const [cards, setCards] = React.useState([]);
   const isMobile = screenWidth <= 800;
-
-  function handleChangeScreen() {
-    setScreenWidth(window.innerWidth)
-  }
 
   React.useEffect(() => {
     window.addEventListener('resize', handleChangeScreen)
@@ -26,6 +23,10 @@ function App() {
       window.removeEventListener('resize', handleChangeScreen)
     }
   })
+
+  function handleChangeScreen() {
+    setScreenWidth(window.innerWidth)
+  }
 
   return (
     <div className='page'>
@@ -35,7 +36,7 @@ function App() {
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<Register />} />
           <Route path='/' element={<Main />} />
-          <Route path='/movies' element={<Movies />} />
+          <Route path='/movies' element={<Movies cards={cards}/>} />
           <Route path='/saved-movies' element={<SavedMovies />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/404' element={<PageNotFound />}/>
