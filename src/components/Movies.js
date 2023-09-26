@@ -1,15 +1,18 @@
+import React from "react";
 import FilterCheckbox from "./FilterCheckbox";
 import MoviesCardList from "./MoviesCardList";
+import Preloader from "./Preloader";
 import SearchForm from "./SearchForm";
 
 function Movies(props) {
-  const { movieList } = props;
-
+  const { movieList, isLoading, onSubmit } = props;
+  
   return (
     <main className='main'>
-      <SearchForm/>
+      <SearchForm onSubmit={onSubmit}/>
       <FilterCheckbox/>
-      <MoviesCardList/>
+      {movieList && <MoviesCardList movieList={movieList}/>}
+      {isLoading && <Preloader/>}
     </main>
   );
 }

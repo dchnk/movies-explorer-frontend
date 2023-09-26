@@ -1,13 +1,14 @@
 .movie {
   display: flex;
   max-width: 270px;
+  
   flex-direction: column;
 }
 
 .movie__image {
   object-fit: cover;
   width: 100%;
-  min-height: 151px;
+  object-position: center center;
 }
 
 .movie__container {
