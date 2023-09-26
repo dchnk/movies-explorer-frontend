@@ -20,16 +20,20 @@ function App() {
   const isMobile = screenWidth <= 800;
 
   React.useEffect(() => {
-    window.addEventListener('resize', handleChangeScreen)
+    window.addEventListener('resize', handleChangeScreen)   
+    
     return () => {
       window.removeEventListener('resize', handleChangeScreen)
     }
   })
 
-  function handleChangeScreen() {
-    setScreenWidth(window.innerWidth)
-  }
   
+  function handleChangeScreen() {
+    setTimeout(() => {
+      setScreenWidth(window.innerWidth)
+    }, 100)
+  }
+
   function handleSubmitFindFilms() {
     setIsLoading(true);
     getFilms()      
@@ -51,7 +55,7 @@ function App() {
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<Register />} />
           <Route path='/' element={<Main />} />
-          <Route path='/movies' element={<Movies movieList={movies} onSubmit={handleSubmitFindFilms} isLoading={isLoading}/>} />
+          <Route path='/movies' element={<Movies movieList={movies} screenWidth={screenWidth} onSubmit={handleSubmitFindFilms} isLoading={isLoading}/>} />
           <Route path='/saved-movies' element={<SavedMovies />} />
           <Route path='/profile' element={<Profile />} />
           <Route path='/404' element={<PageNotFound />}/>

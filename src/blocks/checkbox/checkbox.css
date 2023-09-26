@@ -19,7 +19,7 @@
   height: 14px;
   border-radius: 20px;
   background-color: #C4C4C4;
-  transition: background-color .2s ease-in-out;
+  transition: background-color .3s ease-in-out;
   cursor: pointer;
   position: relative;
 }
@@ -36,7 +36,7 @@
   padding: 0;
   z-index: 20;
   transform: translate(2px, 2px);
-  transition: transform .4s ease-in-out;
+  transition: transform .4s cubic-bezier(0.14, 0.55, 0.49, 0.97);
 }
 
 .checkbox__toggle_type_active {
