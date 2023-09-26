@@ -2,7 +2,7 @@ import React from 'react';
 
 function FilterCheckbox() {
 
-  const [checked, setChecked] = React.useState(true);
+  const [checked, setChecked] = React.useState(false);
   const handleChange = () => {
 
     setChecked(!checked);
