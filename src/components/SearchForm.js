@@ -1,8 +1,16 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 
 function SearchForm(props) {
 
-  const [film, setFilm] = React.useState("");
+  const location = useLocation();
+
+  const [film, setFilm] = React.useState(
+    location.pathname === '/movies' ?
+      (localStorage.getItem('localMoviesInput') || '')
+      :
+      (localStorage.getItem('localSavedMoviesInput') || '')
+  )
   const [filmError, setFilmError] = React.useState(false);
   const [errorMessage, setErrorMessage] = React.useState("");
 
@@ -25,9 +33,11 @@ function SearchForm(props) {
     try {
       if (film < 1) {
         setFilmError(true);
-        throw new Error("Нужно ввести ключевое слово");
+        throw new Error("Нужно ввести ключевое слово");        
       }
       setFilmError(false);
+      location.pathname === '/movies' && localStorage.setItem('localMoviesInput', film)
+      location.pathname === '/saved-movies' && localStorage.setItem('localSavedMoviesInput', film)
       props.onSubmit()
     } catch (e) {
       setErrorMessage(e.message);
