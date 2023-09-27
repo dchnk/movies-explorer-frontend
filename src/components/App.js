@@ -3,8 +3,8 @@ import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
 import Movies from './Movies';
-import Profile from './Profile'
-import SavedMovies from './SavedMovies'
+import Profile from './Profile';
+import SavedMovies from './SavedMovies';
 import { Route, Routes } from 'react-router-dom';
 import { Register } from './Register';
 import { Login } from './Login';
@@ -20,14 +20,20 @@ function App() {
   const isMobile = screenWidth <= 800;
 
   React.useEffect(() => {
-    window.addEventListener('resize', handleChangeScreen)   
-    
+    if (localStorage.getItem('localMovieList')) {
+      setMovies(JSON.parse(localStorage.getItem('localMovieList')));
+    }
+  }, [])
+
+  React.useEffect(() => {
+    window.addEventListener('resize', handleChangeScreen)
+
     return () => {
       window.removeEventListener('resize', handleChangeScreen)
     }
   })
 
-  
+
   function handleChangeScreen() {
     setTimeout(() => {
       setScreenWidth(window.innerWidth)
@@ -36,14 +42,13 @@ function App() {
 
   function handleSubmitFindFilms() {
     setIsLoading(true);
-    getFilms()      
+    getFilms()
       .then(res => {
         setMovies(res)
-        
+        localStorage.setItem('localMovieList', JSON.stringify(res));
       })
       .finally(() => {
         setIsLoading(false);
-        console.log(movies)
       })
   }
 
@@ -55,10 +60,10 @@ function App() {
           <Route path="/signin" element={<Login />} />
           <Route path="/signup" element={<Register />} />
           <Route path='/' element={<Main />} />
-          <Route path='/movies' element={<Movies movieList={movies} screenWidth={screenWidth} onSubmit={handleSubmitFindFilms} isLoading={isLoading}/>} />
+          <Route path='/movies' element={<Movies movieList={movies} screenWidth={screenWidth} onSubmit={handleSubmitFindFilms} isLoading={isLoading} />} />
           <Route path='/saved-movies' element={<SavedMovies />} />
           <Route path='/profile' element={<Profile />} />
-          <Route path='/404' element={<PageNotFound />}/>
+          <Route path='/404' element={<PageNotFound />} />
         </Routes>
         <Footer />
       </div>

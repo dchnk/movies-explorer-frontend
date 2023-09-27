@@ -6,48 +6,64 @@ function MoviesCardList(props) {
   const location = useLocation();
 
   const [currentMovies, setCurrentMovies] = React.useState(0);
-  const [currentMovieList, setCurrentMovieList] = React.useState(null);
   const [isCurrentMovieListFull, setIsCurrentMovieListFull] = React.useState(false);
 
+  
+
   React.useEffect(() => {
+    
+    if (localStorage.getItem('localCurrentMovies')) {
+      setCurrentMovies(localStorage.getItem('localCurrentMovies'))
+      return
+    }
+    console.log(123)
     if (props.screenWidth >= 1280) {
       setCurrentMovies(16)
+      return
     } else if (props.screenWidth < 1280 && props.screenWidth >= 768) {
       setCurrentMovies(8)
-    } else if (props.screenWidth < 629) {
+      return
+    } else if (props.screenWidth < 768) {
       setCurrentMovies(5)
+      return
     }
-
+    if (!localStorage.getItem('localCurrentMovies')) {
+      localStorage.setItem('localCurrentMovies', currentMovies)
+    }
   }, [])
 
   React.useEffect(() => {
+    
     if (!props.movieList) {
       return;
     }
-    setCurrentMovieList(props.movieList.slice(0, currentMovies))
     if (props.movieList.length === currentMovies) {
       setIsCurrentMovieListFull(true);
     }
-  }, [currentMovies, props.movieList, props.screenWidth])
+  }, [currentMovies, props.movieList])
 
   function handleButtonClick() {
     if (props.screenWidth >= 1279) {
-      setCurrentMovies(currentMovies + 4);
+      const newCurrentMovies = parseInt(currentMovies) + 4;
+      setCurrentMovies(newCurrentMovies);
+      localStorage.setItem('localCurrentMovies', newCurrentMovies)
       return;
     }
-    setCurrentMovies(currentMovies + 2);
+    const newCurrentMovies = parseInt(currentMovies) + 2;
+      setCurrentMovies(newCurrentMovies);
+      localStorage.setItem('localCurrentMovies', newCurrentMovies)
   }
 
   return (
     <section className="movies-list">
       <div className="movies-list__content">
         <ul className="movies-list__cards">
-          {currentMovieList && currentMovieList.map((movie) => (
+          {props.movieList && props.movieList.slice(0, currentMovies).map((movie) => (
             <MoviesCard movie={movie} key={movie.id} />
           ))}
         </ul>
       </div>
-      {!isCurrentMovieListFull && location.pathname === "/movies"  && <button className="movies-list__button" onClick={handleButtonClick}>Еще</button>}
+      {!isCurrentMovieListFull && location.pathname === "/movies" && <button className="movies-list__button" onClick={handleButtonClick}>Еще</button>}
     </section>
   );
 }
