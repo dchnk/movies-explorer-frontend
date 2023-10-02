@@ -22,7 +22,6 @@ function MoviesCard(props) {
 
   function handleLikeClick() {
     setIsLiked(!isLiked);
-    console.log(movie.duration)
   }
 
   function handleDisikeClick() {
