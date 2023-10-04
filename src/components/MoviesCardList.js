@@ -4,7 +4,6 @@ import { useLocation } from "react-router-dom";
 
 function MoviesCardList(props) {
   const location = useLocation();
-
   const [currentMovies, setCurrentMovies] = React.useState(
     (localStorage.getItem('localCurrentMovies') && parseInt(localStorage.getItem('localCurrentMovies')) !== 0) || 0);
   const [isCurrentMovieListFull, setIsCurrentMovieListFull] = React.useState(false);
