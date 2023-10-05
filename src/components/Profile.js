@@ -12,7 +12,7 @@ function Profile({ onSubmit, onExit, errorText, isChange, onChangeInputs, onChac
 
   React.useEffect(() => {
     if ((formInputsUse.values.name === currentUser.name) && (formInputsUse.values.email === currentUser.email)) {
-      onChangeInputs('Вы не внесли новые данные, измените email или имя')
+      onChangeInputs('Внесите новые данные, измените email или имя.')
       formInputsUse.setIsValid(false)
     } else {
       onChangeInputs('')
