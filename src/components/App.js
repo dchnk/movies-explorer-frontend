@@ -11,13 +11,16 @@ import { Register } from './Register';
 import { Login } from './Login';
 import { PageNotFound } from './PageNotFound';
 import { getFilms } from '../utils/MoviesApi';
-import { registerUser, loginUser } from '../utils/MainApi';
+import { registerUser, loginUser, getUser } from '../utils/MainApi';
 
 function App() {
   const navigate = useNavigate()
 
-  const [currentUser, setCurrentUser] = React.useState({});
-  const [loggedIn, setLoggedIn] = React.useState(false);
+  const [currentUser, setCurrentUser] = React.useState({
+    name: '',
+    email: ''
+  });
+  const [loggedIn, setLoggedIn] = React.useState(localStorage.getItem('jwt') ? (true) : (false));
   const [isLoading, setIsLoading] = React.useState(false);
   const [screenWidth, setScreenWidth] = React.useState(window.innerWidth);
   const [movies, setMovies] = React.useState(null);
@@ -26,10 +29,24 @@ function App() {
   const [res, setRes] = React.useState(false);
   const isMobile = screenWidth <= 800;
 
+  const checkToken = () => {
+    const token = localStorage.getItem('jwt');
+    token && getUser(token)
+      .then((data) => {
+        if (data) {
+          setLoggedIn(true);
+          setCurrentUser(data)
+        } else {
+          setLoggedIn(false);
+        }
+      })
+      .catch((e) => {
+        console.log(e)
+      })
+  }
+
   React.useEffect(() => {
-    if (!currentUser.name) {
-      localStorage.clear();
-    }
+    checkToken();
     if (localStorage.getItem('localMovieList')) {
       setMovies(JSON.parse(localStorage.getItem('localMovieList')));
     }
@@ -80,9 +97,11 @@ function App() {
   function handleLoginSubmit(password, email) {
     loginUser(password, email)
       .then((res) => {
+        localStorage.setItem('jwt', res.token)
         console.log(res)
         setRes(true)
         setLoggedIn(true)
+        checkToken()
         navigate('/movies')
       })
       .catch((e) => {
@@ -103,7 +122,7 @@ function App() {
             <Route path='/' element={<Main />} />
             <Route path='/movies' element={<Movies movieList={movies} screenWidth={screenWidth} onSubmit={handleSubmitFindFilms} isLoading={isLoading} />} />
             <Route path='/saved-movies' element={<SavedMovies />} />
-            <Route path='/profile' element={<Profile />} />
+            <Route path='/profile' element={<Profile onSubmit={handleSubmitFindFilms} onExit={setLoggedIn}/>} />
             <Route path='/404' element={<PageNotFound />} />
           </Routes>
           <Footer />

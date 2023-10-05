@@ -1,12 +1,26 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 //хук управления формой и валидации формы
 export function useFormWithValidation() {
+
+
+
+  const currentUser = useContext(CurrentUserContext);
+
   const [values, setValues] = React.useState({
     name: '',
     email: '',
     password: ''
-  });
+  })
+
+  React.useEffect(() => {
+    setValues({
+      name: currentUser.name,
+      email: currentUser.email 
+    })
+  }, [currentUser])
+
   const [errors, setErrors] = React.useState({});
   const [isValid, setIsValid] = React.useState(false);
 
@@ -14,8 +28,8 @@ export function useFormWithValidation() {
     const target = event.target;
     const name = target.name;
     const value = target.value;
-    setValues({...values, [name]: value});
-    setErrors({...errors, [name]: target.validationMessage });
+    setValues({ ...values, [name]: value });
+    setErrors({ ...errors, [name]: target.validationMessage });
     setIsValid(target.closest("form").checkValidity());
   };
 

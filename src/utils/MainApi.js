@@ -34,3 +34,29 @@ export const loginUser = (password, email) => {
     return checkRequestResult(res);
   })
 };
+
+export const getUser = (token) => {
+  return fetch(`${BASE_URL}/users/me`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    }
+  })
+  .then((res) => {
+    return checkRequestResult(res);
+  })
+}
+
+export const updateUserInfo = (token) => {
+  return fetch(`${BASE_URL}/users/me`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    }
+  })
+  .then((res) => {
+    return checkRequestResult(res);
+  })
+}
