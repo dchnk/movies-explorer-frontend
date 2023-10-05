@@ -23,7 +23,6 @@ function Profile({ onSubmit, onExit, errorText, isChange, onChangeInputs, onChac
   function handleChange(e) {
     
     formInputsUse.handleChange(e);
-    console.log(formInputsUse.values)
     if (errorText !== '') {
       onChangeInputs('');
     }
