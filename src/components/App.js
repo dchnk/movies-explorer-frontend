@@ -11,7 +11,7 @@ import { Register } from './Register';
 import { Login } from './Login';
 import { PageNotFound } from './PageNotFound';
 import { getFilms } from '../utils/MoviesApi';
-import { registerUser, loginUser, getUser } from '../utils/MainApi';
+import { registerUser, loginUser, getUser, updateUserInfo } from '../utils/MainApi';
 
 function App() {
   const navigate = useNavigate()
@@ -22,6 +22,7 @@ function App() {
   });
   const [loggedIn, setLoggedIn] = React.useState(localStorage.getItem('jwt') ? (true) : (false));
   const [isLoading, setIsLoading] = React.useState(false);
+  const [isChange, setIsChange] = React.useState(false);
   const [screenWidth, setScreenWidth] = React.useState(window.innerWidth);
   const [movies, setMovies] = React.useState(null);
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = React.useState(null);
@@ -111,6 +112,21 @@ function App() {
       })
   }
 
+  function handleSubmitProfile(name, email) {
+    const token = localStorage.getItem('jwt')
+    updateUserInfo(name, email, token)
+      .then((res) => {
+        setCurrentUser(res)
+        setRes(true)
+        setIsChange(false)
+      })
+      .catch((e) => {
+        setRes(false);
+        setErrorText(e);
+        console.log(e);
+    })
+  }
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       <div className='page'>
@@ -122,7 +138,7 @@ function App() {
             <Route path='/' element={<Main />} />
             <Route path='/movies' element={<Movies movieList={movies} screenWidth={screenWidth} onSubmit={handleSubmitFindFilms} isLoading={isLoading} />} />
             <Route path='/saved-movies' element={<SavedMovies />} />
-            <Route path='/profile' element={<Profile onSubmit={handleSubmitFindFilms} onExit={setLoggedIn}/>} />
+            <Route path='/profile' element={<Profile isChange={isChange} onChangeInputs={setErrorText} onChacngeClick={setIsChange} onSubmit={handleSubmitProfile} errorText={errorText} onExit={setLoggedIn}/>} />
             <Route path='/404' element={<PageNotFound />} />
           </Routes>
           <Footer />
