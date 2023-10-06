@@ -65,7 +65,7 @@
   background-image: url("../../images/d1.svg");
 }
 
-.movie__dislike:hover {
+.movie:hover .movie__dislike_visible {
   opacity: 1;
   visibility: visible;
 }

@@ -2,12 +2,12 @@ import FilterCheckbox from "./FilterCheckbox";
 import MoviesCardList from "./MoviesCardList";
 import SearchForm from "./SearchForm";
 
-function SavedMovies() {
+function SavedMovies({ savedMovies, dislikeMovie }) {
   return (
     <main className='main'>
       <SearchForm />
       <FilterCheckbox />
-      <MoviesCardList />
+      <MoviesCardList savedMovies={savedMovies} dislikeMovie={dislikeMovie}/>
     </main>
   );
 }

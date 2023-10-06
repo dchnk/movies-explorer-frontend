@@ -2,28 +2,26 @@ import React from "react";
 import MoviesCard from "./MoviesCard";
 import { useLocation } from "react-router-dom";
 
-function MoviesCardList(props) {
+function MoviesCardList({screenWidth, movieList, likeFilm, savedMovies, dislikeMovie}) {
   const location = useLocation();
   const [currentMovies, setCurrentMovies] = React.useState(
     (localStorage.getItem('localCurrentMovies') && parseInt(localStorage.getItem('localCurrentMovies')) !== 0) || 0);
   const [isCurrentMovieListFull, setIsCurrentMovieListFull] = React.useState(false);
 
-  
-
-  React.useEffect(() => {    
+  React.useEffect(() => {
     if (parseInt(localStorage.getItem('localCurrentMovies')) > 0) {
       setCurrentMovies(parseInt(localStorage.getItem('localCurrentMovies')));
       return;
     }
-    if (props.screenWidth >= 1280) {
+    if (screenWidth >= 1280) {
       setCurrentMovies(16)
       localStorage.setItem('localCurrentMovies', 16);
       return;
-    } else if (props.screenWidth < 1280 && props.screenWidth >= 768) {
+    } else if (screenWidth < 1280 && screenWidth >= 768) {
       setCurrentMovies(8)
       localStorage.setItem('localCurrentMovies', 8);
       return;
-    } else if (props.screenWidth < 768) {
+    } else if (screenWidth < 768) {
       setCurrentMovies(5)
       localStorage.setItem('localCurrentMovies', 5);
       return;
@@ -31,17 +29,16 @@ function MoviesCardList(props) {
   }, [])
 
   React.useEffect(() => {
-    
-    if (!props.movieList) {
+    if (!movieList) {
       return;
     }
-    if (props.movieList.length === currentMovies) {
+    if (movieList.length === currentMovies) {
       setIsCurrentMovieListFull(true);
     }
-  }, [currentMovies, props.movieList])
+  }, [currentMovies, movieList])
 
   function handleButtonClick() {
-    if (props.screenWidth >= 1279) {
+    if (screenWidth >= 1279) {
       const newCurrentMovies = parseInt(currentMovies) + 4;
       setCurrentMovies(newCurrentMovies);
       localStorage.setItem('localCurrentMovies', newCurrentMovies)
@@ -56,9 +53,15 @@ function MoviesCardList(props) {
     <section className="movies-list">
       <div className="movies-list__content">
         <ul className="movies-list__cards">
-          {props.movieList && props.movieList.slice(0, currentMovies).map((movie) => (
-            <MoviesCard movie={movie} key={movie.id} />
+          {location.pathname === "/movies" && movieList && movieList.slice(0, currentMovies).map((movie) => (
+            <MoviesCard movie={movie} key={movie.id} savedMovies={savedMovies} likeFilm={likeFilm} dislikeMovie={dislikeMovie} 
+            isLiked={savedMovies && savedMovies.some(savedMovie => savedMovie.movieId === movie.id)}
+            />
           ))}
+          {location.pathname === "/saved-movies" && savedMovies && savedMovies.map((movie) => (
+            <MoviesCard movie={movie} key={movie._id} likeFilm={likeFilm} dislikeMovie={dislikeMovie}/>
+          ))}
+
         </ul>
       </div>
       {!isCurrentMovieListFull && location.pathname === "/movies" && <button className="movies-list__button" onClick={handleButtonClick}>Еще</button>}

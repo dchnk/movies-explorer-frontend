@@ -2,7 +2,7 @@ export const BASE_URL = 'https://api.denis-diachenko.grad.nomoreparties.co';
 
 export const checkRequestResult = async (res) => {
   if (res.ok) {
-      return res.json();
+    return res.json();
   }
   let text = await new Response(res.body).text();
 
@@ -15,11 +15,11 @@ export const registerUser = (password, email, name) => {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({password, email, name})
+    body: JSON.stringify({ password, email, name })
   })
-  .then((res) => {
-    return checkRequestResult(res);
-  })
+    .then((res) => {
+      return checkRequestResult(res);
+    })
 };
 
 export const loginUser = (password, email) => {
@@ -28,11 +28,11 @@ export const loginUser = (password, email) => {
     headers: {
       'Content-Type': 'application/json'
     },
-    body: JSON.stringify({password, email})
+    body: JSON.stringify({ password, email })
   })
-  .then((res) => {
-    return checkRequestResult(res);
-  })
+    .then((res) => {
+      return checkRequestResult(res);
+    })
 };
 
 export const getUser = (token) => {
@@ -43,9 +43,9 @@ export const getUser = (token) => {
       'Authorization': `Bearer ${token}`,
     }
   })
-  .then((res) => {
-    return checkRequestResult(res);
-  })
+    .then((res) => {
+      return checkRequestResult(res);
+    })
 }
 
 export const updateUserInfo = (name, email, token) => {
@@ -55,9 +55,62 @@ export const updateUserInfo = (name, email, token) => {
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`,
     },
-    body: JSON.stringify({name, email})
+    body: JSON.stringify({ name, email })
   })
-  .then((res) => {
-    return checkRequestResult(res);
-  })
+    .then((res) => {
+      return checkRequestResult(res);
+    })
 }
+
+export const saveFilm = (film, token) => {
+  return fetch(`${BASE_URL}/movies`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      country: film.country,
+      director: film.director,
+      duration: film.duration,
+      year: film.year,
+      description: film.description,
+      image: `https://api.nomoreparties.co${film.image.url}`,
+      trailerLink: film.trailerLink,
+      thumbnail: `https://api.nomoreparties.co${film.image.formats.thumbnail.url}`,
+      movieId: film.id,
+      nameRU: film.nameRU,
+      nameEN: film.nameEN,
+    })
+  })
+    .then((res) => {
+      return checkRequestResult(res);
+    })
+};
+
+export const getSavedFilms = (token) => {
+  return fetch(`${BASE_URL}/movies`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    },
+  })
+    .then((res) => {
+      return checkRequestResult(res);
+    })
+};
+
+export const deleteSavedFilms = (id, token) => {
+  return fetch(`${BASE_URL}/movies/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`,
+    },
+  })
+    .then((res) => {
+      return checkRequestResult(res);
+    })
+};
+

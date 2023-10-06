@@ -11,7 +11,7 @@ import { Register } from './Register';
 import { Login } from './Login';
 import { PageNotFound } from './PageNotFound';
 import { getFilms } from '../utils/MoviesApi';
-import { registerUser, loginUser, getUser, updateUserInfo } from '../utils/MainApi';
+import { registerUser, loginUser, getUser, updateUserInfo, saveFilm, getSavedFilms, deleteSavedFilms } from '../utils/MainApi';
 
 function App() {
   const navigate = useNavigate()
@@ -25,6 +25,7 @@ function App() {
   const [isChange, setIsChange] = React.useState(false);
   const [screenWidth, setScreenWidth] = React.useState(window.innerWidth);
   const [movies, setMovies] = React.useState(null);
+  const [savedMovies, setSavedMovies] = React.useState(null);
   const [isInfoTooltipOpen, setIsInfoTooltipOpen] = React.useState(null);
   const [errorText, setErrorText] = React.useState('');
   const [res, setRes] = React.useState(false);
@@ -36,7 +37,14 @@ function App() {
       .then((data) => {
         if (data) {
           setLoggedIn(true);
-          setCurrentUser(data)
+          setCurrentUser(data)          
+          getSavedFilms(token)
+            .then((res) => {
+              setSavedMovies(res)
+              if (localStorage.getItem('localMovieList')) {
+                setMovies(JSON.parse(localStorage.getItem('localMovieList')));
+              }
+            })
         } else {
           setLoggedIn(false);
         }
@@ -48,9 +56,6 @@ function App() {
 
   React.useEffect(() => {
     checkToken();
-    if (localStorage.getItem('localMovieList')) {
-      setMovies(JSON.parse(localStorage.getItem('localMovieList')));
-    }
   }, [])
 
   React.useEffect(() => {
@@ -124,7 +129,37 @@ function App() {
         setRes(false);
         setErrorText(e);
         console.log(e);
-    })
+      })
+  }
+
+  function handleLikeFilm(film) {
+    const token = localStorage.getItem('jwt')
+    saveFilm(film, token)
+      .then(() => {
+        getSavedFilms(token)
+          .then((res) => {
+            setSavedMovies(res)
+          })
+      })
+      .catch((e) => {
+        setErrorText(e);
+        console.log(e);
+      })
+  }
+
+  function handleDislikeFilm(id) {
+    const token = localStorage.getItem('jwt')
+    deleteSavedFilms(id, token)
+      .then(() => {
+        getSavedFilms(token)
+          .then((res) => {
+            setSavedMovies(res)
+          })
+      })
+      .catch((e) => {
+        setErrorText(e);
+        console.log(e);
+      })
   }
 
   return (
@@ -133,12 +168,12 @@ function App() {
         <div className='page__content'>
           <Header loggedIn={loggedIn} isMobile={isMobile} />
           <Routes>
-            <Route path="/signin" element={<Login isLoading={isLoading} onSubmit={handleLoginSubmit} onChangeInputs={setErrorText} errorText={errorText}/>} />
+            <Route path="/signin" element={<Login isLoading={isLoading} onSubmit={handleLoginSubmit} onChangeInputs={setErrorText} errorText={errorText} />} />
             <Route path="/signup" element={<Register isLoading={isLoading} onSubmit={handleRegisterSubmit} onChangeInputs={setErrorText} errorText={errorText} />} />
             <Route path='/' element={<Main />} />
-            <Route path='/movies' element={<Movies movieList={movies} screenWidth={screenWidth} onSubmit={handleSubmitFindFilms} isLoading={isLoading} />} />
-            <Route path='/saved-movies' element={<SavedMovies />} />
-            <Route path='/profile' element={<Profile isChange={isChange} onChangeInputs={setErrorText} onChacngeClick={setIsChange} onSubmit={handleSubmitProfile} errorText={errorText} onExit={setLoggedIn}/>} />
+            <Route path='/movies' element={<Movies movieList={movies} savedMovies={savedMovies} likeFilm={handleLikeFilm} dislikeMovie={handleDislikeFilm} screenWidth={screenWidth} onSubmit={handleSubmitFindFilms} isLoading={isLoading} />} />
+            <Route path='/saved-movies' element={<SavedMovies savedMovies={savedMovies} dislikeMovie={handleDislikeFilm}/>} />
+            <Route path='/profile' element={<Profile isChange={isChange} onChangeInputs={setErrorText} onChacngeClick={setIsChange} onSubmit={handleSubmitProfile} errorText={errorText} onExit={setLoggedIn} />} />
             <Route path='/404' element={<PageNotFound />} />
           </Routes>
           <Footer />

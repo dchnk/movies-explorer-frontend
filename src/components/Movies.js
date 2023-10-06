@@ -5,13 +5,13 @@ import Preloader from "./Preloader";
 import SearchForm from "./SearchForm";
 
 function Movies(props) {
-  const { movieList, isLoading, onSubmit, screenWidth } = props;
+  const { movieList, isLoading, onSubmit, screenWidth, likeFilm, savedMovies, dislikeMovie } = props;
   
   return (
     <main className='main'>
       <SearchForm onSubmit={onSubmit}/>
       <FilterCheckbox/>
-      {movieList && <MoviesCardList movieList={movieList} screenWidth={screenWidth}/>}
+      {movieList && <MoviesCardList movieList={movieList} savedMovies={savedMovies} likeFilm={likeFilm} screenWidth={screenWidth} dislikeMovie={dislikeMovie}/>}
       {isLoading && <Preloader/>}
     </main>
   );

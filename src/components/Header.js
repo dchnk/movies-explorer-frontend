@@ -1,8 +1,8 @@
 import { Link, useLocation } from "react-router-dom";
-import Logo from "../images/logo__COLOR_main-1.svg"
+import Logo from "../images/logo__COLOR_main-1.svg";
 import Navigation from "./Navigation";
 import React from "react";
-import BurgerIcon from "../images/burger-black.svg"
+import BurgerIcon from "../images/burger-black.svg";
 
 function Header(props) {
 
@@ -10,28 +10,25 @@ function Header(props) {
   const [burgerOpened, setBurgerOpened] = React.useState(false);
   const location = useLocation();
 
-  React.useEffect(() => {
-    setBurgerOpened(false)
+  React.useEffect(() => {    
+    setBurgerOpened(false);
   }, [location.pathname])
 
-  function handleBurgerClick() {
-    stopScrolling();
+  React.useEffect(() => {    
+    stopScrolling(!burgerOpened)
+  }, [burgerOpened])
+
+  function handleBurgerToggleClick() {
     setBurgerOpened(!burgerOpened);
   }
 
-  function handleBurgerOverlayClick() {
-    setBurgerOpened(false);
-  }
-
-  function stopScrolling() {
+  function stopScrolling(burgerOpened) {
     if (!burgerOpened) {
       document.body.style.overflow = "hidden";
     } else {
       document.body.style.overflow = "visible";
     };
   }
-
-
 
   return (
     <>
@@ -54,10 +51,10 @@ function Header(props) {
           {isMobile && loggedIn && <div className="header__burger-menu" style={{
             justifySelf: location.pathname !== "/" && "end",
           }}>
-            <div className={burgerOpened ? ("header__burger-menu-icon header__burger-menu-icon_active") : ("header__burger-menu-icon")} onClick={handleBurgerClick} style={{
+            <div className={burgerOpened ? ("header__burger-menu-icon header__burger-menu-icon_active") : ("header__burger-menu-icon")} onClick={handleBurgerToggleClick} style={{
               backgroundImage: location.pathname !== "/" && !burgerOpened && `url(${BurgerIcon})`,
             }}></div>
-            <div onClick={handleBurgerOverlayClick} className={burgerOpened ? ("header__burger-background header__burger-background_active") : ("header__burger-background")} />
+            <div onClick={handleBurgerToggleClick} className={burgerOpened ? ("header__burger-background header__burger-background_active") : ("header__burger-background")} />
             <div className={burgerOpened ? ("header__burger-content header__burger-content_active") : ("header__burger-content")}>
               {burgerOpened && <div className="header__burger-container">
                 <Navigation burgerOpened={burgerOpened} isMobile={isMobile} />
