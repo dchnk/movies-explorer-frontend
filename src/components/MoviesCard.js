@@ -39,7 +39,7 @@ function MoviesCard(props) {
       dislikeMovie(movie._id)
       return;
     }
-    const currentDislikeMovie = savedMovies.find(film => film.nameRU === movie.nameRU)
+    const currentDislikeMovie = savedMovies && savedMovies.find(film => film.nameRU === movie.nameRU)
     dislikeMovie(currentDislikeMovie._id)
   }
 

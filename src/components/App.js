@@ -37,13 +37,16 @@ function App() {
       .then((data) => {
         if (data) {
           setLoggedIn(true);
-          setCurrentUser(data)          
-          getSavedFilms(token)
+          setCurrentUser(data)
+          return getSavedFilms(token)
             .then((res) => {
-              setSavedMovies(res)
+              if (res) {
+                setSavedMovies(res)
+              }              
               if (localStorage.getItem('localMovieList')) {
                 setMovies(JSON.parse(localStorage.getItem('localMovieList')));
               }
+              
             })
         } else {
           setLoggedIn(false);
@@ -71,6 +74,17 @@ function App() {
     setTimeout(() => {
       setScreenWidth(window.innerWidth)
     }, 100)
+  }
+
+  function handleExitProfile() {
+    setLoggedIn(false);
+    setCurrentUser({
+      name: '',
+      email: ''
+    })
+    setMovies(null);
+    setSavedMovies(null);
+    setErrorText('');
   }
 
   function handleSubmitFindFilms() {
@@ -138,7 +152,10 @@ function App() {
       .then(() => {
         getSavedFilms(token)
           .then((res) => {
-            setSavedMovies(res)
+            if (res) {
+              setSavedMovies(res)
+            }
+            
           })
       })
       .catch((e) => {
@@ -173,7 +190,7 @@ function App() {
             <Route path='/' element={<Main />} />
             <Route path='/movies' element={<Movies movieList={movies} savedMovies={savedMovies} likeFilm={handleLikeFilm} dislikeMovie={handleDislikeFilm} screenWidth={screenWidth} onSubmit={handleSubmitFindFilms} isLoading={isLoading} />} />
             <Route path='/saved-movies' element={<SavedMovies savedMovies={savedMovies} dislikeMovie={handleDislikeFilm}/>} />
-            <Route path='/profile' element={<Profile isChange={isChange} onChangeInputs={setErrorText} onChacngeClick={setIsChange} onSubmit={handleSubmitProfile} errorText={errorText} onExit={setLoggedIn} />} />
+            <Route path='/profile' element={<Profile isChange={isChange} onChangeInputs={setErrorText} onChacngeClick={setIsChange} onSubmit={handleSubmitProfile} errorText={errorText} onExit={handleExitProfile} />} />
             <Route path='/404' element={<PageNotFound />} />
           </Routes>
           <Footer />

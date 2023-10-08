@@ -35,7 +35,7 @@ function Profile({ onSubmit, onExit, errorText, isChange, onChangeInputs, onChac
   }
 
   function handleExitClick() {
-    onExit(false);
+    onExit();
     localStorage.clear();
     navigate('/')
   }
