@@ -19,10 +19,14 @@ function SavedMovies({ savedMovies, dislikeMovie }) {
     console.log(filter.checked)
 
   }, [filter.checked])
+  
+  const handleFilterMovieInput = (input) => {
+    filter.filterInputMovies(savedMovies, input)
+  }
 
   return (
     <main className='main'>
-      <SearchForm />
+      <SearchForm filterInputMovies={handleFilterMovieInput}/>
       <FilterCheckbox checked={filter.checked} onClick={filter.handleChange}/>
       <MoviesCardList savedMovies={filter.exportSavedMovieList && filter.exportSavedMovieList} dislikeMovie={dislikeMovie}/>
     </main>

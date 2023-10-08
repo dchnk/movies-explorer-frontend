@@ -23,6 +23,11 @@ export function useMoviesFilter() {
     const currentMovieList = movieList.filter(i => i.duration < 41 )
     setExportCurrentMoviesList(currentMovieList);
   }
+  
+  const filterInputMovies = (movieList, input) => {
+    const currentMovieList = movieList.filter(i =>(i.nameRU.toLowerCase()).includes(input.toLowerCase()));
+    checked ? (filterShortMovies(currentMovieList)) : (setExportCurrentMoviesList(currentMovieList))
+  }
 
   const handleChange = () => {
     if (!checked) {
@@ -36,5 +41,5 @@ export function useMoviesFilter() {
     location.pathname === '/saved-movies' && localStorage.removeItem('localSavedMoviesToggle')
   };
 
- return { checked, exportSavedMovieList, setInputCurrentMoviesList , handleChange, filterShortMovies } ;
+ return { checked, exportSavedMovieList, filterInputMovies, setInputCurrentMoviesList , handleChange, filterShortMovies } ;
 }

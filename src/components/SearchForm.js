@@ -30,6 +30,7 @@ function SearchForm(props) {
   
   const handleSubmit = (e) => {
     e.preventDefault();
+    
     try {
       if (film < 1) {
         setFilmError(true);
@@ -38,6 +39,9 @@ function SearchForm(props) {
       setFilmError(false);
       location.pathname === '/movies' && localStorage.setItem('localMoviesInput', film)
       location.pathname === '/saved-movies' && localStorage.setItem('localSavedMoviesInput', film)
+      if (localStorage.getItem('localMovieList')) {
+        props.filterInputMovies(film);
+      }
       props.onSubmit()
     } catch (e) {
       setErrorMessage(e.message);
