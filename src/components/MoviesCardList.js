@@ -52,8 +52,8 @@ function MoviesCardList({ screenWidth, movieList, likeFilm, savedMovies, dislike
 
   return (
     <section className="movies-list">
-      {movieList && movieList.length < 1 && <span className="movies-list__nothing dsada">Ничего не найдено</span>}
-      {savedMovies && savedMovies.length < 1 && <span className="movies-list__nothing">Ничего не найдено</span>}
+      {location.pathname === "/movies" && movieList && movieList.length < 1 && <span className="movies-list__nothing dsada">Ничего не найдено</span>}
+      {location.pathname === "/saved-movies" && savedMovies && savedMovies.length < 1 && <span className="movies-list__nothing">Ничего не найдено</span>}
       <div className="movies-list__content">
         <ul className="movies-list__cards">
           {location.pathname === "/movies" && movieList && movieList.slice(0, currentMovies).map((movie) => (
