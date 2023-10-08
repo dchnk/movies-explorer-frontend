@@ -27,9 +27,7 @@ function App() {
   const [screenWidth, setScreenWidth] = React.useState(window.innerWidth);
   const [movies, setMovies] = React.useState(null);
   const [savedMovies, setSavedMovies] = React.useState(null);
-  const [isInfoTooltipOpen, setIsInfoTooltipOpen] = React.useState(null);
   const [errorText, setErrorText] = React.useState('');
-  const [res, setRes] = React.useState(false);
   const isMobile = screenWidth <= 800;
 
   const checkToken = () => {
@@ -103,13 +101,9 @@ function App() {
   function handleRegisterSubmit(password, email, name) {
     registerUser(password, email, name)
       .then((res) => {
-        setIsInfoTooltipOpen('register');
         handleLoginSubmit(password, email)
-        setRes(true)
       })
       .catch((e) => {
-        setIsInfoTooltipOpen('register');
-        setRes(false);
         setErrorText(e);
         console.log(e);
       })
@@ -120,13 +114,11 @@ function App() {
       .then((res) => {
         localStorage.setItem('jwt', res.token)
         console.log(res)
-        setRes(true)
         setLoggedIn(true)
         checkToken()
         navigate('/movies')
       })
       .catch((e) => {
-        setRes(false);
         setErrorText(e);
         console.log(e);
       })
@@ -137,11 +129,9 @@ function App() {
     updateUserInfo(name, email, token)
       .then((res) => {
         setCurrentUser(res)
-        setRes(true)
         setIsChange(false)
       })
       .catch((e) => {
-        setRes(false);
         setErrorText(e);
         console.log(e);
       })
