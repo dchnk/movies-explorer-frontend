@@ -2,11 +2,11 @@ import React from "react";
 import MoviesCard from "./MoviesCard";
 import { useLocation } from "react-router-dom";
 
-function MoviesCardList({screenWidth, movieList, likeFilm, savedMovies, dislikeMovie}) {
+function MoviesCardList({ screenWidth, movieList, likeFilm, savedMovies, dislikeMovie }) {
   const location = useLocation();
   const [isCurrentMovieListFull, setIsCurrentMovieListFull] = React.useState(false);
   const [currentMovies, setCurrentMovies] = React.useState(
-  (localStorage.getItem('localCurrentMovies') && parseInt(localStorage.getItem('localCurrentMovies')) !== 0) || 0);
+    (localStorage.getItem('localCurrentMovies') && parseInt(localStorage.getItem('localCurrentMovies')) !== 0) || 0);
 
   React.useEffect(() => {
     if (parseInt(localStorage.getItem('localCurrentMovies')) > 0) {
@@ -46,25 +46,25 @@ function MoviesCardList({screenWidth, movieList, likeFilm, savedMovies, dislikeM
       return;
     }
     const newCurrentMovies = parseInt(currentMovies) + 2;
-      setCurrentMovies(newCurrentMovies);
-      localStorage.setItem('localCurrentMovies', newCurrentMovies)
+    setCurrentMovies(newCurrentMovies);
+    localStorage.setItem('localCurrentMovies', newCurrentMovies)
   }
 
   return (
     <section className="movies-list">
+      {movieList && movieList.length < 1 && <span className="movies-list__nothing dsada">Ничего не найдено</span>}
+      {savedMovies && savedMovies.length < 1 && <span className="movies-list__nothing">Ничего не найдено</span>}
       <div className="movies-list__content">
         <ul className="movies-list__cards">
-          
           {location.pathname === "/movies" && movieList && movieList.slice(0, currentMovies).map((movie) => (
-            <MoviesCard movie={movie} key={movie.id} savedMovies={savedMovies && savedMovies} likeFilm={likeFilm} dislikeMovie={dislikeMovie} 
-            isLiked={savedMovies && savedMovies.some(savedMovie => savedMovie.movieId === movie.id)}
+            <MoviesCard movie={movie} key={movie.id} savedMovies={savedMovies && savedMovies} likeFilm={likeFilm} dislikeMovie={dislikeMovie}
+              isLiked={savedMovies && savedMovies.some(savedMovie => savedMovie.movieId === movie.id)}
             />
           ))}
-          {movieList && movieList.length < 1 && <span>Ничего не найдено</span>}
+
           {location.pathname === "/saved-movies" && savedMovies && savedMovies.map((movie) => (
-            <MoviesCard movie={movie} key={movie._id} likeFilm={likeFilm} dislikeMovie={dislikeMovie}/>
-          ))}
-          {savedMovies && savedMovies.length < 1 && <span>Ничего не найдено</span>}
+            <MoviesCard movie={movie} key={movie._id} likeFilm={likeFilm} dislikeMovie={dislikeMovie} />
+          ))}          
         </ul>
       </div>
       {!isCurrentMovieListFull && location.pathname === "/movies" && <button className="movies-list__button" onClick={handleButtonClick}>Еще</button>}
