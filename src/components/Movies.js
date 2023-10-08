@@ -15,7 +15,6 @@ function Movies(props) {
       
       if (localStorage.getItem('localMoviesInput')) {
         const localValue = localStorage.getItem('localMoviesInput');
-        console.log(localValue);
         filter.filterInputMovies(movieList, localValue);
         return
       }

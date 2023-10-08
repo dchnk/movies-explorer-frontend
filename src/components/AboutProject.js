@@ -1,6 +1,6 @@
-function AboutProject() {
+function AboutProject({ componentRef }) {
   return (
-    <section className='about'>
+    <section ref={componentRef} className='about'>
       <h2 className="about__heading">О проекте</h2>
       <div className="about__descriptions">
         <div className="about__part">
