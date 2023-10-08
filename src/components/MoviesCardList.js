@@ -1,27 +1,12 @@
 import React from "react";
 import MoviesCard from "./MoviesCard";
 import { useLocation } from "react-router-dom";
-import { useMoviesFilter } from "./hooks/MoviesFilter";
 
 function MoviesCardList({screenWidth, movieList, likeFilm, savedMovies, dislikeMovie}) {
   const location = useLocation();
   const [isCurrentMovieListFull, setIsCurrentMovieListFull] = React.useState(false);
   const [currentMovies, setCurrentMovies] = React.useState(
   (localStorage.getItem('localCurrentMovies') && parseInt(localStorage.getItem('localCurrentMovies')) !== 0) || 0);
-  
-  const filter = useMoviesFilter();
-
-  React.useEffect(() => {
-    if (savedMovies !== null) {
-      filter.setInputCurrentMoviesList(savedMovies)
-    }
-    
-  }, [savedMovies])
-
-  React.useEffect(() => {
-    console.log(filter.checked)
-
-  }, [filter.checked])
 
   React.useEffect(() => {
     if (parseInt(localStorage.getItem('localCurrentMovies')) > 0) {
@@ -47,9 +32,10 @@ function MoviesCardList({screenWidth, movieList, likeFilm, savedMovies, dislikeM
     if (!movieList) {
       return;
     }
-    if (movieList.length === currentMovies) {
+    if (movieList.length <= currentMovies) {
       setIsCurrentMovieListFull(true);
     }
+    else setIsCurrentMovieListFull(false);
   }, [currentMovies, movieList])
 
   function handleButtonClick() {
@@ -73,7 +59,7 @@ function MoviesCardList({screenWidth, movieList, likeFilm, savedMovies, dislikeM
             isLiked={savedMovies && savedMovies.some(savedMovie => savedMovie.movieId === movie.id)}
             />
           ))}
-          {location.pathname === "/saved-movies" && filter.exportSavedMovieList && filter.exportSavedMovieList.map((movie) => (
+          {location.pathname === "/saved-movies" && savedMovies && savedMovies.map((movie) => (
             <MoviesCard movie={movie} key={movie._id} likeFilm={likeFilm} dislikeMovie={dislikeMovie}/>
           ))}
 
