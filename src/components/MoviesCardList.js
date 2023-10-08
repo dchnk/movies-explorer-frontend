@@ -1,12 +1,27 @@
 import React from "react";
 import MoviesCard from "./MoviesCard";
 import { useLocation } from "react-router-dom";
+import { useMoviesFilter } from "./hooks/MoviesFilter";
 
 function MoviesCardList({screenWidth, movieList, likeFilm, savedMovies, dislikeMovie}) {
   const location = useLocation();
-  const [currentMovies, setCurrentMovies] = React.useState(
-    (localStorage.getItem('localCurrentMovies') && parseInt(localStorage.getItem('localCurrentMovies')) !== 0) || 0);
   const [isCurrentMovieListFull, setIsCurrentMovieListFull] = React.useState(false);
+  const [currentMovies, setCurrentMovies] = React.useState(
+  (localStorage.getItem('localCurrentMovies') && parseInt(localStorage.getItem('localCurrentMovies')) !== 0) || 0);
+  
+  const filter = useMoviesFilter();
+
+  React.useEffect(() => {
+    if (savedMovies !== null) {
+      filter.setInputCurrentMoviesList(savedMovies)
+    }
+    
+  }, [savedMovies])
+
+  React.useEffect(() => {
+    console.log(filter.checked)
+
+  }, [filter.checked])
 
   React.useEffect(() => {
     if (parseInt(localStorage.getItem('localCurrentMovies')) > 0) {
@@ -54,11 +69,11 @@ function MoviesCardList({screenWidth, movieList, likeFilm, savedMovies, dislikeM
       <div className="movies-list__content">
         <ul className="movies-list__cards">
           {location.pathname === "/movies" && movieList && movieList.slice(0, currentMovies).map((movie) => (
-            <MoviesCard movie={movie} key={movie.id} savedMovies={savedMovies} likeFilm={likeFilm} dislikeMovie={dislikeMovie} 
+            <MoviesCard movie={movie} key={movie.id} savedMovies={savedMovies && savedMovies} likeFilm={likeFilm} dislikeMovie={dislikeMovie} 
             isLiked={savedMovies && savedMovies.some(savedMovie => savedMovie.movieId === movie.id)}
             />
           ))}
-          {location.pathname === "/saved-movies" && savedMovies && savedMovies.map((movie) => (
+          {location.pathname === "/saved-movies" && filter.exportSavedMovieList && filter.exportSavedMovieList.map((movie) => (
             <MoviesCard movie={movie} key={movie._id} likeFilm={likeFilm} dislikeMovie={dislikeMovie}/>
           ))}
 

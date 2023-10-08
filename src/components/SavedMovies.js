@@ -7,7 +7,7 @@ function SavedMovies({ savedMovies, dislikeMovie }) {
     <main className='main'>
       <SearchForm />
       <FilterCheckbox />
-      <MoviesCardList savedMovies={savedMovies} dislikeMovie={dislikeMovie}/>
+      <MoviesCardList savedMovies={savedMovies && savedMovies} dislikeMovie={dislikeMovie}/>
     </main>
   );
 }
