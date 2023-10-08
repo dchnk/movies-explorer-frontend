@@ -54,15 +54,17 @@ function MoviesCardList({screenWidth, movieList, likeFilm, savedMovies, dislikeM
     <section className="movies-list">
       <div className="movies-list__content">
         <ul className="movies-list__cards">
+          
           {location.pathname === "/movies" && movieList && movieList.slice(0, currentMovies).map((movie) => (
             <MoviesCard movie={movie} key={movie.id} savedMovies={savedMovies && savedMovies} likeFilm={likeFilm} dislikeMovie={dislikeMovie} 
             isLiked={savedMovies && savedMovies.some(savedMovie => savedMovie.movieId === movie.id)}
             />
           ))}
+          {movieList && movieList.length < 1 && <span>Ничего не найдено</span>}
           {location.pathname === "/saved-movies" && savedMovies && savedMovies.map((movie) => (
             <MoviesCard movie={movie} key={movie._id} likeFilm={likeFilm} dislikeMovie={dislikeMovie}/>
           ))}
-
+          {savedMovies && savedMovies.length < 1 && <span>Ничего не найдено</span>}
         </ul>
       </div>
       {!isCurrentMovieListFull && location.pathname === "/movies" && <button className="movies-list__button" onClick={handleButtonClick}>Еще</button>}

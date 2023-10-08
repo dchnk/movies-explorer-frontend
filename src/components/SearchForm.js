@@ -41,6 +41,7 @@ function SearchForm(props) {
       location.pathname === '/saved-movies' && localStorage.setItem('localSavedMoviesInput', film)
       if (localStorage.getItem('localMovieList')) {
         props.filterInputMovies(film);
+        return;
       }
       props.onSubmit()
     } catch (e) {
@@ -53,7 +54,7 @@ function SearchForm(props) {
       <div className="search__form-container">
         <form className="search__form" onSubmit={handleSubmit} noValidate>
           <input className="search__input" onChange={handleChange} value={film} name="film" id="film" type="text" placeholder="Фильм" required></input>
-          <button className="search__button">Найти</button>
+          <button className="search__button" type="submit">Найти</button>
         </form>
       </div>
       <div className={filmError ? ("search__error-container search__error-container_active") : ("search__error-container")}>

@@ -10,15 +10,15 @@ function SavedMovies({ savedMovies, dislikeMovie }) {
 
   React.useEffect(() => {
     if (savedMovies !== null) {
-      filter.setInputCurrentMoviesList(savedMovies)
+      
+      if (localStorage.getItem('localSavedMoviesInput')) {
+        filter.filterInputMovies(savedMovies, localStorage.getItem('localSavedMoviesInput'));
+        return
+      }
+      filter.setInputCurrentMoviesList(savedMovies);
     }
     
-  }, [savedMovies])
-
-  React.useEffect(() => {
-    console.log(filter.checked)
-
-  }, [filter.checked])
+  }, [savedMovies, filter.checked])
   
   const handleFilterMovieInput = (input) => {
     filter.filterInputMovies(savedMovies, input)

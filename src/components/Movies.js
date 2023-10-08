@@ -12,19 +12,24 @@ function Movies(props) {
 
   React.useEffect(() => {
     if (movieList !== null) {
-      filter.setInputCurrentMoviesList(movieList)
+      
+      if (localStorage.getItem('localMoviesInput')) {
+        const localValue = localStorage.getItem('localMoviesInput');
+        console.log(localValue);
+        filter.filterInputMovies(movieList, localValue);
+        return
+      }
+      filter.setInputCurrentMoviesList(movieList);
     }
-    
-  }, [movieList])
+  }, [movieList, filter.checked])
 
-  React.useEffect(() => {
-    console.log(filter.checked)
-
-  }, [filter.checked])
+  const handleFilterMovieInput = (input) => {
+    filter.filterInputMovies(movieList, input)
+  }
 
   return (
     <main className='main'>
-      <SearchForm onSubmit={onSubmit}/>
+      <SearchForm onSubmit={onSubmit} filterInputMovies={handleFilterMovieInput}/>
       <FilterCheckbox checked={filter.checked} onClick={filter.handleChange}/>
       {movieList && <MoviesCardList movieList={filter.exportSavedMovieList && filter.exportSavedMovieList} savedMovies={savedMovies} likeFilm={likeFilm} screenWidth={screenWidth} dislikeMovie={dislikeMovie}/>}
       {isLoading && <Preloader/>}
