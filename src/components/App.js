@@ -6,12 +6,13 @@ import Movies from './Movies';
 import Profile from './Profile';
 import SavedMovies from './SavedMovies';
 import { CurrentUserContext } from "../contexts/CurrentUserContext.js";
-import { useNavigate, Route, Routes } from 'react-router-dom';
+import { useNavigate, Route, Routes, Navigate } from 'react-router-dom';
 import { Register } from './Register';
 import { Login } from './Login';
 import { PageNotFound } from './PageNotFound';
 import { getFilms } from '../utils/MoviesApi';
 import { registerUser, loginUser, getUser, updateUserInfo, saveFilm, getSavedFilms, deleteSavedFilms } from '../utils/MainApi';
+import { ProtectedRoute } from './ProtectedRoute';
 
 function App() {
   const navigate = useNavigate()
@@ -188,10 +189,14 @@ function App() {
             <Route path="/signin" element={<Login isLoading={isLoading} onSubmit={handleLoginSubmit} onChangeInputs={setErrorText} errorText={errorText} />} />
             <Route path="/signup" element={<Register isLoading={isLoading} onSubmit={handleRegisterSubmit} onChangeInputs={setErrorText} errorText={errorText} />} />
             <Route path='/' element={<Main />} />
-            <Route path='/movies' element={<Movies movieList={movies} savedMovies={savedMovies} likeFilm={handleLikeFilm} dislikeMovie={handleDislikeFilm} screenWidth={screenWidth} onSubmit={handleSubmitFindFilms} isLoading={isLoading} />} />
-            <Route path='/saved-movies' element={<SavedMovies savedMovies={savedMovies} dislikeMovie={handleDislikeFilm}/>} />
-            <Route path='/profile' element={<Profile isChange={isChange} onChangeInputs={setErrorText} onChacngeClick={setIsChange} onSubmit={handleSubmitProfile} errorText={errorText} onExit={handleExitProfile} />} />
+            <Route path='/movies' element={<ProtectedRoute element={Movies} loggedIn={loggedIn} movieList={movies} savedMovies={savedMovies} likeFilm={handleLikeFilm} dislikeMovie={handleDislikeFilm} screenWidth={screenWidth} onSubmit={handleSubmitFindFilms} isLoading={isLoading} />} />
+            <Route path='/saved-movies' element={<ProtectedRoute element={SavedMovies} loggedIn={loggedIn} savedMovies={savedMovies} dislikeMovie={handleDislikeFilm}/>} />
+            <Route path='/profile' element={<ProtectedRoute element={Profile} loggedIn={loggedIn} isChange={isChange} onChangeInputs={setErrorText} onChacngeClick={setIsChange} onSubmit={handleSubmitProfile} errorText={errorText} onExit={handleExitProfile} />} />
             <Route path='/404' element={<PageNotFound />} />
+            <Route path="*" element={loggedIn ?
+              <Navigate to="/404" replace />
+              : <Navigate to="/signin" replace />
+            } />
           </Routes>
           <Footer />
         </div>
