@@ -2,7 +2,7 @@ import React from "react";
 import MoviesCard from "./MoviesCard";
 import { useLocation } from "react-router-dom";
 
-function MoviesCardList({ screenWidth, movieList, likeFilm, savedMovies, dislikeMovie }) {
+function MoviesCardList({ screenWidth, movieList, likeFilm, savedMovies, dislikeMovie, isLoading }) {
   const location = useLocation();
   const [isCurrentMovieListFull, setIsCurrentMovieListFull] = React.useState(false);
   const [currentMovies, setCurrentMovies] = React.useState(
@@ -57,13 +57,13 @@ function MoviesCardList({ screenWidth, movieList, likeFilm, savedMovies, dislike
       <div className="movies-list__content">
         <ul className="movies-list__cards">
           {location.pathname === "/movies" && movieList && movieList.slice(0, currentMovies).map((movie) => (
-            <MoviesCard movie={movie} key={movie.id} savedMovies={savedMovies && savedMovies} likeFilm={likeFilm} dislikeMovie={dislikeMovie}
+            <MoviesCard movie={movie} isLoading={isLoading} key={movie.id} savedMovies={savedMovies && savedMovies} likeFilm={likeFilm} dislikeMovie={dislikeMovie}
               isLiked={savedMovies && savedMovies.some(savedMovie => savedMovie.movieId === movie.id)}
             />
           ))}
 
           {location.pathname === "/saved-movies" && savedMovies && savedMovies.map((movie) => (
-            <MoviesCard movie={movie} key={movie._id} likeFilm={likeFilm} dislikeMovie={dislikeMovie} />
+            <MoviesCard movie={movie} key={movie._id} likeFilm={likeFilm} isLoading={isLoading} dislikeMovie={dislikeMovie} />
           ))}          
         </ul>
       </div>

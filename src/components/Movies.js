@@ -30,7 +30,7 @@ function Movies(props) {
     <main className='main'>
       <SearchForm onSubmit={onSubmit} filterInputMovies={handleFilterMovieInput}/>
       <FilterCheckbox checked={filter.checked} onClick={filter.handleChange}/>
-      {movieList && <MoviesCardList movieList={filter.exportSavedMovieList && filter.exportSavedMovieList} savedMovies={savedMovies} likeFilm={likeFilm} screenWidth={screenWidth} dislikeMovie={dislikeMovie}/>}
+      {movieList && <MoviesCardList movieList={filter.exportSavedMovieList && filter.exportSavedMovieList} isLoading={isLoading} savedMovies={savedMovies} likeFilm={likeFilm} screenWidth={screenWidth} dislikeMovie={dislikeMovie}/>}
       {isLoading && <Preloader/>}
     </main>
   );

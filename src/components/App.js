@@ -41,11 +41,11 @@ function App() {
             .then((res) => {
               if (res) {
                 setSavedMovies(res)
-              }              
+              }
               if (localStorage.getItem('localMovieList')) {
                 setMovies(JSON.parse(localStorage.getItem('localMovieList')));
               }
-              
+
             })
         } else {
           setLoggedIn(false);
@@ -93,12 +93,16 @@ function App() {
         setMovies(res)
         localStorage.setItem('localMovieList', JSON.stringify(res));
       })
+      .catch((e) => {
+        console.log(e)
+      })
       .finally(() => {
         setIsLoading(false);
       })
   }
 
   function handleRegisterSubmit(password, email, name) {
+    setIsLoading(true);
     registerUser(password, email, name)
       .then((res) => {
         handleLoginSubmit(password, email)
@@ -107,9 +111,13 @@ function App() {
         setErrorText(e);
         console.log(e);
       })
+      .finally(() => {
+        setIsLoading(false);
+      })
   }
 
   function handleLoginSubmit(password, email) {
+    setIsLoading(true);
     loginUser(password, email)
       .then((res) => {
         localStorage.setItem('jwt', res.token)
@@ -122,10 +130,14 @@ function App() {
         setErrorText(e);
         console.log(e);
       })
+      .finally(() => {
+        setIsLoading(false);
+      })
   }
 
   function handleSubmitProfile(name, email) {
     const token = localStorage.getItem('jwt')
+    setIsLoading(true);
     updateUserInfo(name, email, token)
       .then((res) => {
         setCurrentUser(res)
@@ -135,38 +147,42 @@ function App() {
         setErrorText(e);
         console.log(e);
       })
+      .finally(() => {
+        setIsLoading(false);
+      })
   }
 
   function handleLikeFilm(film) {
     const token = localStorage.getItem('jwt')
+    setIsLoading(true);
     saveFilm(film, token)
-      .then(() => {
-        getSavedFilms(token)
-          .then((res) => {
-            if (res) {
-              setSavedMovies(res)
-            }
-            
-          })
+      .then((res) => {
+        const newSavedMovies = [...savedMovies, res];
+        setSavedMovies(newSavedMovies)
       })
       .catch((e) => {
         setErrorText(e);
         console.log(e);
+      })
+      .finally(() => {
+        setIsLoading(false);
       })
   }
 
   function handleDislikeFilm(id) {
     const token = localStorage.getItem('jwt')
+    setIsLoading(true);
     deleteSavedFilms(id, token)
       .then(() => {
-        getSavedFilms(token)
-          .then((res) => {
-            setSavedMovies(res)
-          })
+        const newSavedMovies = savedMovies.filter(i => i._id !== id)
+        setSavedMovies(newSavedMovies)
       })
       .catch((e) => {
         setErrorText(e);
         console.log(e);
+      })
+      .finally(() => {
+        setIsLoading(false);
       })
   }
 
@@ -180,8 +196,8 @@ function App() {
             <Route path="/signup" element={<Register isLoading={isLoading} onSubmit={handleRegisterSubmit} onChangeInputs={setErrorText} errorText={errorText} />} />
             <Route path='/' element={<Main />} />
             <Route path='/movies' element={<ProtectedRoute element={Movies} loggedIn={loggedIn} movieList={movies} savedMovies={savedMovies} likeFilm={handleLikeFilm} dislikeMovie={handleDislikeFilm} screenWidth={screenWidth} onSubmit={handleSubmitFindFilms} isLoading={isLoading} />} />
-            <Route path='/saved-movies' element={<ProtectedRoute element={SavedMovies} loggedIn={loggedIn} savedMovies={savedMovies} dislikeMovie={handleDislikeFilm}/>} />
-            <Route path='/profile' element={<ProtectedRoute element={Profile} loggedIn={loggedIn} isChange={isChange} onChangeInputs={setErrorText} onChacngeClick={setIsChange} onSubmit={handleSubmitProfile} errorText={errorText} onExit={handleExitProfile} />} />
+            <Route path='/saved-movies' element={<ProtectedRoute element={SavedMovies} loggedIn={loggedIn} isLoading={isLoading} savedMovies={savedMovies} dislikeMovie={handleDislikeFilm} />} />
+            <Route path='/profile' element={<ProtectedRoute element={Profile} loggedIn={loggedIn} isLoading={isLoading} isChange={isChange} onChangeInputs={setErrorText} onChacngeClick={setIsChange} onSubmit={handleSubmitProfile} errorText={errorText} onExit={handleExitProfile} />} />
             <Route path='/404' element={<PageNotFound />} />
             <Route path="*" element={loggedIn ?
               <Navigate to="/404" replace />

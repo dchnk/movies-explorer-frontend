@@ -10,11 +10,6 @@ function SavedMovies({ savedMovies, dislikeMovie }) {
 
   React.useEffect(() => {
     if (savedMovies !== null) {
-      
-      if (localStorage.getItem('localSavedMoviesInput')) {
-        filter.filterInputMovies(savedMovies, localStorage.getItem('localSavedMoviesInput'));
-        return
-      }
       filter.setInputCurrentMoviesList(savedMovies);
     }
     
@@ -26,7 +21,7 @@ function SavedMovies({ savedMovies, dislikeMovie }) {
 
   return (
     <main className='main'>
-      <SearchForm filterInputMovies={handleFilterMovieInput}/>
+      <SearchForm filterInputMovies={handleFilterMovieInput} checked={filter.checked} savedMovies={savedMovies}/>
       <FilterCheckbox checked={filter.checked} onClick={filter.handleChange}/>
       <MoviesCardList savedMovies={filter.exportSavedMovieList && filter.exportSavedMovieList} dislikeMovie={dislikeMovie}/>
     </main>

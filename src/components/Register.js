@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Logo from "../images/logo__COLOR_main-1.svg";
 import { useFormWithValidation } from "./hooks/FormValidation";
 
-export const Register = ({ onSubmit, errorText, onChangeInputs }) => {
+export const Register = ({ onSubmit, errorText, onChangeInputs, isLoading }) => {
   const formInputsUse = useFormWithValidation();
 
   const handleSubmit = (e) => {
@@ -72,7 +72,7 @@ export const Register = ({ onSubmit, errorText, onChangeInputs }) => {
         </input>
         <span className="register__input-error register-input-password-error register__input-error_active">{formInputsUse.errors.password}</span>
         <span className="reister__submit-error reister__submit-error_type_register">{errorText}</span>
-        <button className={formInputsUse.isValid ? ("register__submit") : ("register__submit register__submit_disabled")} type="submit" disabled={!formInputsUse.isValid}>Зарегистрироваться</button>
+        <button className={formInputsUse.isValid ? ("register__submit") : ("register__submit register__submit_disabled")} type="submit" disabled={!formInputsUse.isValid || isLoading}>Зарегистрироваться</button>
         <p className="register__question">Уже зарегистрированы? <Link to='/signin' className="register__link">Войти</Link></p>
       </form>
     </div>

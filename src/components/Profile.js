@@ -3,7 +3,7 @@ import { CurrentUserContext } from "../contexts/CurrentUserContext";
 import { useNavigate } from 'react-router-dom';
 import { useFormWithValidation } from './hooks/FormValidation';
 
-function Profile({ onSubmit, onExit, errorText, isChange, onChangeInputs, onChacngeClick }) {
+function Profile({ onSubmit, onExit, errorText, isChange, onChangeInputs, onChacngeClick, isLoading }) {
 
   const formInputsUse = useFormWithValidation();
   const navigate = useNavigate();
@@ -63,7 +63,7 @@ function Profile({ onSubmit, onExit, errorText, isChange, onChangeInputs, onChac
             </label>
           </div>
           {isChange && <span className="profile__submit-error profile__submit-error_active">{errorText} {formInputsUse.errors.name} {formInputsUse.errors.email}</span>}
-          {isChange && <button className={formInputsUse.isValid ? ("profile__submit") : ("profile__submit profile__submit_disabled")} type='submit' disabled={!formInputsUse.isValid}>Сохранить</button>}
+          {isChange && <button className={formInputsUse.isValid ? ("profile__submit") : ("profile__submit profile__submit_disabled")} type='submit' disabled={!formInputsUse.isValid || isLoading}>Сохранить</button>}
         </form>
         {!isChange && <div>
           <button className="profile__button" onClick={handleChangeClick} type="submit">Редактировать</button>

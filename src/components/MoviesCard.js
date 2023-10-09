@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 
 function MoviesCard(props) {
 
-  const { movie, savedMovies, dislikeMovie } = props;
+  const { movie, savedMovies, dislikeMovie, isLoading } = props;
   const location = useLocation();
   const [isLiked, setIsLiked] = React.useState(props.isLiked);
   const [duration, setDuration] = React.useState('');
@@ -48,8 +48,8 @@ function MoviesCard(props) {
       <a href={movie.trailerLink} target="_blank" rel="noreferrer"><img className="movie__image" alt="картинка фильма" src={(location.pathname === "/movies" && `https://api.nomoreparties.co${movie.image.url}`) || (location.pathname === "/saved-movies" && movie.image)} /></a>
       <div className="movie__container">
         <p className="movie__name">{movie.nameRU}</p>
-        {location.pathname === "/movies" && <button className={isLiked ? ("movie__like movie__like_active") : ("movie__like")} onClick={isLiked ? (handleDisikeClick) : (handleLikeClick)} />}
-        {location.pathname === "/saved-movies" && <button className="movie__dislike movie__dislike_visible" onClick={handleDisikeClick} />}
+        {location.pathname === "/movies" && <button className={isLiked ? ("movie__like movie__like_active") : ("movie__like")} onClick={isLiked ? (handleDisikeClick) : (handleLikeClick)} disabled={isLoading}/>}
+        {location.pathname === "/saved-movies" && <button className="movie__dislike movie__dislike_visible" onClick={handleDisikeClick} disabled={isLoading}/>}
       </div>
       <p className="movie__duration">{duration}</p>
     </li>

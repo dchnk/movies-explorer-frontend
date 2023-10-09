@@ -9,10 +9,17 @@ function SearchForm(props) {
     location.pathname === '/movies' ?
       (localStorage.getItem('localMoviesInput') || '')
       :
-      (localStorage.getItem('localSavedMoviesInput') || '')
+      ('')
   )
   const [filmError, setFilmError] = React.useState(false);
   const [errorMessage, setErrorMessage] = React.useState("");
+
+  React.useEffect(() => {
+    if (props.savedMovies) {
+      props.filterInputMovies(film);
+    }
+    
+  }, [props.checked, props.savedMovies])
 
 
   const handleChange = (e) => {
@@ -38,7 +45,6 @@ function SearchForm(props) {
       }
       setFilmError(false);
       location.pathname === '/movies' && localStorage.setItem('localMoviesInput', film)
-      location.pathname === '/saved-movies' && localStorage.setItem('localSavedMoviesInput', film)
       if (localStorage.getItem('localMovieList')) {
         props.filterInputMovies(film);
         return;
