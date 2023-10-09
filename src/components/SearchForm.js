@@ -50,7 +50,6 @@ function SearchForm(props) {
         props.filterInputMovies(film);
         return;
       }
-      
       location.pathname === '/movies' && localStorage.setItem('localMoviesInput', film)
       props.onSubmit()
       props.filterInputMovies(film);

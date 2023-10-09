@@ -1,4 +1,4 @@
-export const BASE_URL = 'https://api.denis-diachenko.grad.nomoreparties.co';
+import { BASE_URL } from "./constants";
 
 export const checkRequestResult = async (res) => {
   if (res.ok) {

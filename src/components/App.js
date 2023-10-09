@@ -104,7 +104,7 @@ function App() {
   function handleRegisterSubmit(password, email, name) {
     setIsLoading(true);
     registerUser(password, email, name)
-      .then((res) => {
+      .then(() => {
         handleLoginSubmit(password, email)
       })
       .catch((e) => {
@@ -191,8 +191,10 @@ function App() {
         <div className='page__content'>
           <Header loggedIn={loggedIn} isMobile={isMobile} />
           <Routes>
-            <Route path="/signin" element={<Login isLoading={isLoading} onSubmit={handleLoginSubmit} onChangeInputs={setErrorText} errorText={errorText} />} />
-            <Route path="/signup" element={<Register isLoading={isLoading} onSubmit={handleRegisterSubmit} onChangeInputs={setErrorText} errorText={errorText} />} />
+            <Route path="/signin" element={loggedIn ?
+              <Navigate to="/movies" replace /> : <Login isLoading={isLoading}onSubmit={handleLoginSubmit} onChangeInputs={setErrorText} errorText={errorText} />} />
+            <Route path="/signup" element={loggedIn ?
+              <Navigate to="/movies" replace /> : <Register isLoading={isLoading} onSubmit={handleRegisterSubmit} onChangeInputs={setErrorText} errorText={errorText} />} />
             <Route path='/' element={<Main />} />
             <Route path='/movies' element={<ProtectedRoute element={Movies} loggedIn={loggedIn} movieList={movies} savedMovies={savedMovies} likeFilm={handleLikeFilm} dislikeMovie={handleDislikeFilm} screenWidth={screenWidth} onSubmit={handleSubmitFindFilms} isLoading={isLoading} />} />
             <Route path='/saved-movies' element={<ProtectedRoute element={SavedMovies} loggedIn={loggedIn} isLoading={isLoading} savedMovies={savedMovies} dislikeMovie={handleDislikeFilm} />} />
