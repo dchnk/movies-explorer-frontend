@@ -44,12 +44,16 @@ function SearchForm(props) {
         throw new Error("Нужно ввести ключевое слово");        
       }
       setFilmError(false);
-      location.pathname === '/movies' && localStorage.setItem('localMoviesInput', film)
       if (localStorage.getItem('localMovieList')) {
+        console.log(1)
+        location.pathname === '/movies' && localStorage.setItem('localMoviesInput', film)
         props.filterInputMovies(film);
         return;
       }
+      
+      location.pathname === '/movies' && localStorage.setItem('localMoviesInput', film)
       props.onSubmit()
+      props.filterInputMovies(film);
     } catch (e) {
       setErrorMessage(e.message);
     }

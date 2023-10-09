@@ -121,7 +121,6 @@ function App() {
     loginUser(password, email)
       .then((res) => {
         localStorage.setItem('jwt', res.token)
-        console.log(res)
         setLoggedIn(true)
         checkToken()
         navigate('/movies')
