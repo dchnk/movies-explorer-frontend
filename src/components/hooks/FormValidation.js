@@ -21,12 +21,23 @@ export function useFormWithValidation() {
     })
   }, [currentUser])
 
-
+  const validateEmail = (email) => {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email);
+  }
 
   const handleChange = (event) => {
     const target = event.target;
     const targetName = target.name;
     const value = target.value;
+    if (targetName === 'email') {
+      if (!validateEmail(value)) {
+        target.setCustomValidity('Email введен не корректно.')
+      } else {
+        target.setCustomValidity('')
+      }
+    }
+    
 
     setValues({ ...values, [targetName]: value });
 
