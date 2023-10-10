@@ -1,13 +1,15 @@
 .movie {
   display: flex;
   max-width: 270px;
+  
   flex-direction: column;
 }
 
 .movie__image {
   object-fit: cover;
+  height: 151px;
   width: 100%;
-  min-height: 151px;
+  object-position: center center;
 }
 
 .movie__container {
@@ -21,6 +23,7 @@
 
 .movie__name {
   font-size: 13px;
+  height: 13px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
@@ -62,7 +65,7 @@
   background-image: url("../../images/d1.svg");
 }
 
-.movie__dislike:hover {
+.movie:hover .movie__dislike_visible {
   opacity: 1;
   visibility: visible;
 }

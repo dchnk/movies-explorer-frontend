@@ -93,8 +93,21 @@
   transition: background-color .1s ease-in-out;
 }
 
+.profile__submit_disabled {
+  background-color: #c5c5c5;
+  cursor:  auto;
+}
+
+
+
+
 .profile__submit:hover {
   background-color: rgba(53, 88, 243, 0.8);
+}
+
+.profile__submit_disabled:hover {
+  background-color: #c5c5c5;
+  cursor:  auto;  
 }
 
 .profile__submit-error {
@@ -102,6 +115,7 @@
   color: #FF004C;
   text-align: center;
   font-size: 11px;
+  min-height: 13px;
   font-style: normal;
   font-weight: 400;
   line-height: normal;

@@ -11,7 +11,14 @@
   border-radius: 3px;
   border: 1px solid rgba(255, 255, 255, 0.6);
   background-color: transparent;
-  grid-column-start: 1;  
+  grid-column-start: 1;
+  cursor: pointer;
+  transition: .1s ease-in-out;
+}
+
+.promo__button:hover {
+  background-color: #2BE080;
+  color: black;
 }
 
 @media screen and (max-width: 847px) {

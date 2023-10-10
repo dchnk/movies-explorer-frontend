@@ -9,6 +9,11 @@
   border-bottom: 1px solid #E8E8E8;
 }
 
+.search__form-container {
+  display: flex;
+  justify-content: center;
+}
+
 @media screen and (max-width: 847px){
   .search__form{
     margin: 0 30px;

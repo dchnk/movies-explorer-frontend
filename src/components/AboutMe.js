@@ -1,6 +1,7 @@
 import Photo from "../images/photo.jpeg"
 
-function AboutMe() {
+function AboutMe() {  
+
   return (
     <section className='about-me'>
       <div className="about-me__content">

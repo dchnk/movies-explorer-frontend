@@ -25,6 +25,11 @@
   grid-template-rows: auto;
 }
 
+.movies-list__nothing {
+  padding: 0;
+  margin: auto;
+}
+
 .movies-list__button {
   cursor: pointer;
   max-width: 320px;
